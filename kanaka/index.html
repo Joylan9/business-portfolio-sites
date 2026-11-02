@@ -52,10 +52,7 @@ section{transition:background-color .6s ease}
 @media(max-width:900px){.atelier-gallery{grid-template-columns:repeat(2,1fr)}.hero-img img{min-height:340px}}
 @media(max-width:520px){.atelier-gallery{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){#progress{display:none}.card img:hover,.gallery img:hover{transform:none}}
-#curtains-canvas{position:fixed;top:0;left:0;right:0;height:100vh;z-index:5;pointer-events:none;opacity:0;transition:opacity .5s ease}
-body.curtains-ready #curtains-canvas{opacity:1}
-body.curtains-ready .hero-img img{opacity:0 !important}
-</style></head><body><div id="curtains-canvas" aria-hidden="true"></div><div id="progress" aria-hidden="true"></div>
+</style></head><body><div id="progress" aria-hidden="true"></div>
 <header class="top"><div class="topin"><div class="brand">KANAKA<span>FINE JEWELLERY • MANGALURU</span></div>
 <nav><a href="#collections">Collections</a><a href="#pieces">Signature Pieces</a><a href="#craft">Craftsmanship</a><a href="#visit">Visit Us</a><a href="#book">Book a Visit</a></nav><a class="btn" href="#book">Book Appointment</a></div></header>
 
@@ -282,96 +279,6 @@ document.querySelectorAll('.reveal').forEach(function(el, i){ el.style.transitio
   }
 })();
 </script>
-<!-- Sanjai creative-web: CurtainsJS 8.1.6 WebGL hero layer, HERO IMAGE ONLY.
-     Pattern from workspace/repos/curtainsjs/examples/multiple-planes-scroll-effect/
-     (lerped scrollEffect, delta clamped to +-60, vertex bend + slight scale).
-     Safety: the hero image stays visible by default; it is hidden ONLY when
-     the plane fires onReady (body.curtains-ready). CDN failure, no WebGL,
-     curtains.onError, reduced motion, or a narrow screen all leave the
-     plain hero img untouched. Canvas is fixed, pointer-events:none, and
-     z-index 5, i.e. below the sticky header (z-index 30). -->
-<script src="https://cdn.jsdelivr.net/npm/curtainsjs@8.1.6/dist/curtains.umd.min.js"></script>
-<script>
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (window.innerWidth < 768) return; /* small screens: plain img, no WebGL cost */
-  if (typeof window.Curtains === 'undefined' || typeof window.Plane === 'undefined') return; /* CDN failed */
-  function init() {
-    var heroImg = document.querySelector('.hero-img img');
-    if (!heroImg || !heroImg.complete || heroImg.naturalWidth === 0) return; /* img not loaded: keep it visible */
-    var curtains, plane, scrollEffect = 0;
-    try {
-      curtains = new window.Curtains({
-        container: 'curtains-canvas',
-        pixelRatio: Math.min(1.5, window.devicePixelRatio)
-      });
-    } catch (err) { return; }
-    curtains.onRender(function () {
-      scrollEffect = curtains.lerp(scrollEffect, 0, 0.075);
-    }).onScroll(function () {
-      var delta = curtains.getScrollDeltas();
-      delta.y = -delta.y;
-      if (delta.y > 60) delta.y = 60;
-      else if (delta.y < -60) delta.y = -60;
-      if (Math.abs(delta.y) > Math.abs(scrollEffect)) {
-        scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.5);
-      }
-    }).onError(function () {
-      /* Never hide the img on error: canvas stays opacity 0, img stays visible. */
-      document.body.classList.remove('curtains-ready');
-      document.body.classList.add('no-curtains');
-    }).onContextLost(function () {
-      curtains.restoreContext();
-    });
-    var vs = [
-      'precision mediump float;',
-      'attribute vec3 aVertexPosition;',
-      'attribute vec2 aTextureCoord;',
-      'uniform mat4 uMVMatrix;',
-      'uniform mat4 uPMatrix;',
-      'uniform mat4 planeTextureMatrix;',
-      'varying vec3 vVertexPosition;',
-      'varying vec2 vTextureCoord;',
-      'uniform float uScrollEffect;',
-      'void main() {',
-      '  vec3 vertexPosition = aVertexPosition;',
-      '  vertexPosition.x += sin((vertexPosition.y / 1.5 + 1.0) * 3.141592) * (sin(uScrollEffect / 2000.0));',
-      '  gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);',
-      '  vVertexPosition = vertexPosition;',
-      '  vTextureCoord = (planeTextureMatrix * vec4(aTextureCoord, 0.0, 1.0)).xy;',
-      '}'
-    ].join('\n');
-    var fs = [
-      'precision mediump float;',
-      'varying vec3 vVertexPosition;',
-      'varying vec2 vTextureCoord;',
-      'uniform sampler2D planeTexture;',
-      'void main() { gl_FragColor = texture2D(planeTexture, vTextureCoord); }'
-    ].join('\n');
-    try {
-      plane = new window.Plane(curtains, document.getElementById('hero-plane'), {
-        vertexShader: vs,
-        fragmentShader: fs,
-        widthSegments: 10,
-        heightSegments: 10,
-        uniforms: { scrollEffect: { name: 'uScrollEffect', type: '1f', value: 0 } }
-      });
-    } catch (err) { return; }
-    plane.onReady(function () {
-      /* Only now swap the DOM img for the WebGL plane. */
-      document.body.classList.add('curtains-ready');
-    }).onRender(function () {
-      /* Gentle, capped scale only; no parallax translation, so the plane
-         stays glued to the hero div and never fights the existing hero CSS. */
-      plane.rotation.z = Math.abs(scrollEffect) / 1500;
-      plane.scale.y = 1 + Math.abs(scrollEffect) / 600;
-      if (plane.textures[0]) plane.textures[0].scale.y = 1 + Math.abs(scrollEffect) / 300;
-      plane.uniforms.scrollEffect.value = scrollEffect;
-    });
-  }
-  /* Like the example, init on window load so the hero texture is loaded. */
-  if (document.readyState === 'complete') init();
-  else window.addEventListener('load', init);
-})();
-</script>
+
+
 </body></html>
