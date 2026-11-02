@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CASA LIVING — Furniture &amp; Home Decor, Udupi | Demo Portfolio</title>
+<meta name="description" content="Demo portfolio site for CASA LIVING, a fictional high-end furniture and home decor showroom in Udupi, India.">
+<!-- Demo portfolio site — fictional brand for demonstration only, not a real business. -->
+<style>
+:root{--walnut:#5b3a29;--walnut2:#7a5238;--sage:#7d8b74;--cream:#faf6ef;--paper:#fffdf8;--ink:#2b211b;--mut:#6f6258;--terra:#c96f4a;--line:#e8ddd0;--gold:#b9975b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,serif;color:var(--ink);background:var(--cream);line-height:1.6}
+body,button,input,select,textarea{font-family:Georgia,serif}
+a{color:var(--walnut)}img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:linear-gradient(135deg,#e9dccb,#d9c6ad);opacity:1;transition:transform .8s ease}
+.wrap{max-width:1220px;margin:auto;padding:0 22px}
+header{position:sticky;top:0;z-index:30;background:rgba(250,246,239,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{font-size:26px;letter-spacing:.14em;font-weight:700}.brand span{color:var(--terra)}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase}nav a{text-decoration:none;color:#4a3a30;font-weight:700}
+.cta{background:var(--walnut);color:#fff!important;text-decoration:none;padding:11px 18px;border-radius:999px;font-family:Arial,sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;border:0;cursor:pointer}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:560px}.hero-text{padding:56px 44px 48px 0}.eyebrow{font-family:Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-size:12px;font-weight:800}
+h1{font-size:clamp(42px,6vw,76px);line-height:.95;letter-spacing:-.02em;margin:16px 0}h2{font-size:clamp(30px,4vw,48px);line-height:1.05;margin:10px 0 12px}h3{margin:8px 0}
+.lead{font-size:19px;color:#53473d}.hero-img{min-height:560px;background:#d9c6ad;overflow:hidden}
+.hero-img img{height:560px;aspect-ratio:16/10;object-fit:cover}
+.pill{display:inline-block;border:1px solid var(--line);background:#fff;padding:7px 12px;border-radius:999px;font-family:Arial,sans-serif;font-size:12px;margin:4px 4px 0 0}
+section{padding:64px 0}.mut{color:var(--mut)}
+.grid{display:grid;gap:20px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(91,58,41,.07)}
+.card-body{padding:18px}.price{font-size:22px;font-weight:700;color:var(--walnut)}.old{color:#999;text-decoration:line-through;font-size:15px;margin-left:8px}
+.thumb{height:240px;background:#e9dccb;overflow:hidden}.thumb img{height:100%;aspect-ratio:4/3;object-fit:cover}.thumb.tall{height:320px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tab{border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700}.tab[aria-pressed="true"],.tab.active{background:var(--walnut);color:#fff}
+.product.hide{display:none}
+.tag{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);font-weight:800}
+.badge{background:var(--sage);color:#fff;padding:5px 9px;border-radius:999px;font-family:Arial,sans-serif;font-size:11px}
+.quote{font-size:21px;line-height:1.5}
+.form{background:var(--walnut);color:#f7efe4;border-radius:22px;padding:28px}.form label{display:block;margin:12px 0 4px;font-family:Arial,sans-serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d8c9b6;border-radius:10px;background:#fff;color:#2b211b}
+button.submit{background:var(--terra);color:#fff;border:0;padding:14px 20px;border-radius:999px;font-weight:800;cursor:pointer}
+#confirm{display:none;background:#eef3e8;color:#2f4a2a;border:1px solid #b9cba8;padding:14px;border-radius:12px;margin-top:14px}
+footer{background:#2b211b;color:#e9ddd0;padding:40px 0;margin-top:20px}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.on{opacity:1;transform:none}
+.story{background:#f3ece1;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.chapter{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px}.chapter-num{font-family:Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-size:12px;font-weight:800}.pullquote{font-size:clamp(24px,3vw,34px);line-height:1.25;font-style:italic;margin:0}.maker{background:var(--walnut);color:#f7efe4;border-radius:22px;padding:28px}.maker .mut{color:#e9ddd0}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{transition:none;opacity:1;transform:none}}
+@media(max-width:900px){.hero,.g3,.g4,.g2{grid-template-columns:1fr}.hero-text{padding:36px 0}.hero-img{min-height:340px}nav{display:none}}
+
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--terra);z-index:100;transition:width .1s linear}
+header.scrolled{box-shadow:0 10px 30px rgba(91,58,41,.18)}
+.card img:hover,.thumb img:hover,.hero-img img:hover{transform:scale(1.06)}
+.card,figure{transition:transform .5s ease,box-shadow .5s ease}.card:hover,figure:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(91,58,41,.14)}
+.reveal{transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.morerooms figure{margin:0}.morerooms .thumb{height:260px}
+@media (prefers-reduced-motion:reduce){#progress{transition:none}.card img:hover,.thumb img:hover,.hero-img img:hover{transform:none}.card:hover,figure:hover{transform:none}}
+/* CurtainsJS hero layer (Sanjai pack, one plane only): fixed canvas below the
+   sticky header (z-index 30), never intercepting clicks. The hero img stays
+   visible until the plane is ready — only then does body.curtains-ready
+   hide it, so a CDN/WebGL failure leaves the plain img in place. */
+#curtains-canvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:20;pointer-events:none}
+#curtains-canvas canvas{display:block;pointer-events:none}
+body.curtains-ready .hero-img img{opacity:0!important}
+@media (prefers-reduced-motion:reduce){#curtains-canvas{display:none}}
+</style>
+</head>
+<body>
+<div id="curtains-canvas" aria-hidden="true"></div>
+<!-- Demo portfolio site — CASA LIVING is a fictional demo brand, not a real business. -->
+<div id="progress" aria-hidden="true"></div>
+<header><div class="wrap nav"><div class="brand">CASA <span>LIVING</span></div><nav aria-label="Main"><a href="#story">Our Story</a><a href="#collections">Collections</a><a href="#products">Furniture</a><a href="#inspiration">Inspiration</a><a href="#custom">Made-to-Order</a><a href="#visit">Visit Us</a></nav><a class="cta" href="#enquiry">Book a Visit</a></div></header>
+<main>
+<section class="hero wrap" style="padding-top:28px">
+<div class="hero-text reveal on"><p class="eyebrow">Udupi • Furniture &amp; Home Decor • Est. Demo Showroom</p><h1>Rooms that feel warm, calm &amp; beautifully made.</h1><p class="lead">CASA LIVING crafts solid-wood furniture and thoughtful decor for coastal Indian homes — pieces that age gracefully, fit real rooms, and invite you to slow down.</p><p style="font-size:21px;font-style:italic;line-height:1.45">A home should not just look finished. It should tell a family's story — in the grain of the wood, the chair everyone reaches for, and the table where every celebration begins.</p><p><a class="cta" href="#products">Shop the Collection →</a> <a class="cta" style="background:#fff;color:var(--walnut)!important;border:1px solid var(--walnut)" href="#custom">Custom Furniture</a></p><p><span class="pill">✓ Solid teak &amp; walnut</span><span class="pill">✓ Made-to-order sizes</span><span class="pill">✓ Udupi delivery &amp; installation</span></p><p class="mut">Demo contact: <a href="tel:+919876543215">+91 98765 43215</a> • This is a fictional demo portfolio, not a real business.</p></div>
+<div class="hero-img" id="hero-plane"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=85" alt="Warm living room with a comfortable sofa and wooden coffee table" loading="eager" crossorigin="" data-sampler="planeTexture" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80'"></div>
+</section>
+
+<section id="story" class="story reveal"><div class="wrap"><p class="eyebrow">Our Story — High-End Interior Editorial</p><h2>A home that tells a family's story.</h2><p class="lead">We do not begin with a catalogue. We begin with how you live: morning light in the bedroom, homework at the dining table, grandparents in the firmest chair, guests who stay for one more cup of coffee. The furniture follows the life — never the other way round.</p><div class="grid g3" style="margin-top:24px">
+<article class="chapter"><p class="chapter-num">Chapter I</p><h3>The Wood Before the Furniture</h3><p>Every piece starts long before it is a sofa, bed or table. We choose seasoned American walnut for its deep, calm grain, solid teak for strength in coastal humidity, and warm acacia and mango wood where a lighter, lived-in character suits the room. Cane is hand-woven so air moves through it, brass is left unlacquered so it warms and patinas with touch, and every edge is sanded, oiled and hand-finished — not rushed through a spray line. If the wood is not right, we do not build with it.</p></article>
+<article class="chapter"><p class="chapter-num">Chapter II</p><h3>Made for the Room It Will Live In</h3><p>A beautiful piece in the wrong size is not beautiful for long. We measure the wall, the doorway, the window light and the way people actually move through the room. A dining table is sized for the family plus two guests, not for a photograph. A wardrobe is built around the awkward corner, not in spite of it. A lounge chair is placed where the evening light falls. That is why a CASA LIVING room feels settled on the first day — it was designed for that room, in that house, for those people.</p></article>
+<article class="chapter"><p class="chapter-num">Chapter III</p><h3>Furniture That Outlives Trends</h3><p>Trends change every season; a family table should not. We favour quiet forms, honest materials and joinery that can be repaired, re-oiled and re-covered, rather than fashion that dates in three years. Walnut deepens, cane softens, brass gains character — the piece grows more itself with use. Buy once, live with it for decades, and one day hand it on. That is the real luxury: furniture you do not need to replace.</p></article>
+</div>
+<div class="maker" style="margin-top:24px"><p class="eyebrow" style="color:#e8c9a8">The Maker's Note</p><h3 style="color:#fff">Made slowly, by hands that know the wood.</h3><p class="mut">Our workshop joins, sands and finishes by hand, checking each frame, hinge and weave before it leaves. A walnut tabletop is matched grain by grain. A cane panel is tensioned so it stays true in humidity. A brass foot is fitted, not glued on as an afterthought. Small imperfections in natural wood are not hidden — they are the proof that the material is real, and that someone took the time to work with it, not around it.</p></div>
+<div class="grid g2" style="margin-top:24px"><blockquote class="card card-body"><p class="pullquote">“We did not buy furniture. We bought the room our children will remember.”</p><p class="mut">— A CASA LIVING family, in this demo story</p></blockquote><blockquote class="card card-body"><p class="pullquote">“Good furniture should be quiet enough to live with, and strong enough to be lived on.”</p><p class="mut">— The CASA LIVING workshop, in this demo story</p></blockquote></div>
+</div></section>
+
+<section id="collections" class="wrap reveal"><p class="eyebrow">Collections</p><h2>Five rooms. One warm language.</h2><p class="mut">Walnut, sage, cream and terracotta — chosen to suit Udupi's light, humidity and relaxed coastal living.</p>
+<div class="grid g3">
+<article class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80" alt="Elegant living room armchair beside a side table" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Living Room</span><h3>Sofas, lounges &amp; coffee tables</h3><p class="mut">Deep seats, washable fabrics and solid frames built for family evenings.</p></div></article>
+<article class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1600&q=80" alt="Calm bedroom with wooden bed and soft bedding" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Bedroom</span><h3>Beds, wardrobes &amp; bedside calm</h3><p class="mut">Quiet finishes, generous storage and headboards made for slow mornings.</p></div></article>
+<article class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80" alt="Dining table set for a family meal" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Dining</span><h3>Tables that gather everyone</h3><p class="mut">Four to ten seats, easy-clean tops and chairs that stay comfortable.</p></div></article>
+<article class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80" alt="Wooden office desk with chair in a bright room" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Office</span><h3>Work, beautifully at home</h3><p class="mut">Ergonomic desks, bookshelves and calm, focused corners.</p></div></article>
+<article class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1600&q=80" alt="Classic armchair with soft cushions" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Decor</span><h3>Decor that finishes a room</h3><p class="mut">Lamps, mirrors, throws, planters and art in warm, earthy tones.</p></div></article>
+<article class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80" alt="Modern living room interior with sofa and plants" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Whole Home</span><h3>Complete-home styling</h3><p class="mut">One team, one palette, from the entry console to the balcony chair.</p></div></article>
+</div></section>
+
+<section id="products" class="wrap reveal"><p class="eyebrow">The Collection</p><h2>Furniture, priced honestly.</h2><p class="mut">Tap a category to filter. All prices are demo INR prices, inclusive of standard finish. Custom sizes and fabrics are quoted before making.</p>
+<div class="tabs" role="group" aria-label="Filter products">
+<button class="tab active" type="button" data-filter="all" aria-pressed="true">All</button>
+<button class="tab" type="button" data-filter="living" aria-pressed="false">Living Room</button>
+<button class="tab" type="button" data-filter="bedroom" aria-pressed="false">Bedroom</button>
+<button class="tab" type="button" data-filter="dining" aria-pressed="false">Dining</button>
+<button class="tab" type="button" data-filter="office" aria-pressed="false">Office</button>
+<button class="tab" type="button" data-filter="decor" aria-pressed="false">Decor</button>
+</div>
+<div class="grid g3" id="productGrid">
+<article class="card product" data-category="living"><div class="thumb"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80" alt="Malabar three-seater sofa in sage fabric" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Living • Bestseller</span><h3>Malabar 3-Seater Sofa</h3><p class="mut">Solid teak frame, high-density foam, sage cotton-blend fabric.</p><p>Dimensions: 210 × 95 × 88 cm</p><p class="price">₹84,900 <span class="old">₹98,000</span></p></div></article>
+<article class="card product" data-category="living"><div class="thumb"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1600&q=80" alt="Coastal lounge armchair in cream upholstery" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Living</span><h3>Coastal Lounge Chair</h3><p class="mut">Kiln-dried hardwood, feather-blend cushion, cream bouclé.</p><p>Dimensions: 82 × 88 × 95 cm</p><p class="price">₹32,500</p></div></article>
+<article class="card product" data-category="living"><div class="thumb"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80" alt="Walnut coffee table with lower shelf" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Living</span><h3>Walnut Oval Coffee Table</h3><p class="mut">American walnut veneer, solid brass legs, open shelf.</p><p>Dimensions: 120 × 60 × 42 cm</p><p class="price">₹24,900</p></div></article>
+<article class="card product" data-category="bedroom"><div class="thumb"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1600&q=80" alt="Teak queen bed with upholstered headboard" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Bedroom</span><h3>Serene Teak Queen Bed</h3><p class="mut">Solid teak, padded linen headboard, under-bed storage option.</p><p>Dimensions: 168 × 212 × 105 cm</p><p class="price">₹68,000</p></div></article>
+<article class="card product" data-category="bedroom"><div class="thumb"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80" alt="King bed with white bedding and wooden frame" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Bedroom</span><h3>Udupi King Bed, Low Frame</h3><p class="mut">Mango wood, matte walnut finish, slatted base for airflow.</p><p>Dimensions: 198 × 212 × 72 cm</p><p class="price">₹76,500</p></div></article>
+<article class="card product" data-category="bedroom"><div class="thumb"><img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1600&q=80" alt="Bedroom wardrobe with wooden doors" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Bedroom</span><h3>Four-Door Wardrobe, Sage</h3><p class="mut">Engineered wood with teak veneer, soft-close hinges, mirror panel.</p><p>Dimensions: 180 × 58 × 210 cm</p><p class="price">₹92,000</p></div></article>
+<article class="card product" data-category="dining"><div class="thumb"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80" alt="Six-seater wooden dining table" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Dining</span><h3>Family 6-Seater Dining Table</h3><p class="mut">Solid acacia top, matte lacquer, seats six comfortably.</p><p>Dimensions: 180 × 95 × 76 cm</p><p class="price">₹58,900</p></div></article>
+<article class="card product" data-category="dining"><div class="thumb"><img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1600&q=80" alt="Dining room with table and chairs" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Dining</span><h3>Terracotta Dining Chair — Pair</h3><p class="mut">Bentwood frame, woven seat, terracotta cushion covers.</p><p>Dimensions: 48 × 55 × 88 cm each</p><p class="price">₹19,800 <span class="mut">/ pair</span></p></div></article>
+<article class="card product" data-category="dining"><div class="thumb"><img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1600&q=80" alt="Dining sideboard with decor" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Dining</span><h3>Coastal Sideboard &amp; Crockery Unit</h3><p class="mut">Teak veneer, cane-front doors, stone top, cutlery drawer.</p><p>Dimensions: 160 × 45 × 85 cm</p><p class="price">₹54,000</p></div></article>
+<article class="card product" data-category="office"><div class="thumb"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80" alt="Study desk with wooden top" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Office</span><h3>Focus Writing Desk</h3><p class="mut">Walnut top, cable drawer, solid steel-and-wood legs.</p><p>Dimensions: 140 × 70 × 75 cm</p><p class="price">₹36,900</p></div></article>
+<article class="card product" data-category="office"><div class="thumb"><img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1600&q=80" alt="Ergonomic office chair" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Office</span><h3>Ergo Lounge Work Chair</h3><p class="mut">Mesh back, lumbar support, height-adjustable, walnut arm caps.</p><p>Dimensions: 66 × 68 × 108 cm</p><p class="price">₹28,500</p></div></article>
+<article class="card product" data-category="office"><div class="thumb"><img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=80" alt="Bookshelf wall with books and decor" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Office</span><h3>Open Library Bookshelf</h3><p class="mut">Five shelves, teak veneer, wall-anchored for safety.</p><p>Dimensions: 120 × 32 × 200 cm</p><p class="price">₹41,000</p></div></article>
+<article class="card product" data-category="decor"><div class="thumb"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80" alt="Living room decor with lamp and plants" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Decor</span><h3>Handwoven Floor Lamp</h3><p class="mut">Rattan shade, brass base, warm 2700K bulb included.</p><p>Dimensions: 38 × 38 × 152 cm</p><p class="price">₹12,900</p></div></article>
+<article class="card product" data-category="decor"><div class="thumb"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=1600&q=80" alt="Decorative vases and terracotta accents" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Decor</span><h3>Terracotta Vase Trio</h3><p class="mut">Hand-finished terracotta, three heights, for dried stems.</p><p>Dimensions: 18–32 cm tall</p><p class="price">₹6,400 <span class="mut">/ set of 3</span></p></div></article>
+<article class="card product" data-category="decor"><div class="thumb"><img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&q=80" alt="Cozy room with mirror and soft decor" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><span class="tag">Decor</span><h3>Arched Walnut Mirror</h3><p class="mut">Solid walnut frame, bevelled mirror, wall fixings included.</p><p>Dimensions: 70 × 170 cm</p><p class="price">₹16,500</p></div></article>
+</div></section>
+
+<section id="inspiration" class="wrap reveal"><p class="eyebrow">Room Inspiration</p><h2>See it in a real-feeling room.</h2><div class="grid g3">
+<figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80" alt="Warm living room inspiration with plants and sofa" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Slow Living Room</b><p class="mut">Sage sofa, walnut table, terracotta cushions. Nothing shouts — everything belongs.</p></figcaption></figure>
+<figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1600&q=80" alt="Serene bedroom inspiration" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Quiet Bedroom</b><p class="mut">Low teak bed, linen bedding and soft morning light.</p></figcaption></figure>
+<figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80" alt="Family dining room inspiration" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Sunday Dining</b><p class="mut">A table long enough for family, plus two extra chairs for guests.</p></figcaption></figure>
+<figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80" alt="Home office inspiration" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Calm Work Corner</b><p class="mut">A desk by the window, a bookshelf within reach, no clutter in sight.</p></figcaption></figure>
+<figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80" alt="Reading corner inspiration" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Reading Corner</b><p class="mut">One chair, one lamp, one small table — and an hour to yourself.</p></figcaption></figure>
+<figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1600&q=80" alt="Decorated living space inspiration" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Finished With Decor</b><p class="mut">Lamps, mirrors and vases that make a new house feel like home.</p></figcaption></figure>
+</div></section>
+
+<section id="more-rooms" class="wrap reveal"><p class="eyebrow">More Rooms, More Stories</p><h2>More rooms, more stories.</h2><p class="mut">Twelve more rooms from the CASA LIVING world — living, dining, bedroom and work corners, each styled to show how a single piece changes the whole room.</p><div class="grid g3 morerooms"><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80" alt="Luxury living room with walnut furniture and soft light" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Luxury living room</b><p class="mut">Luxury living room with walnut furniture and soft light.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1600&q=80" alt="Elegant lounge with designer sofa and warm lighting" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Elegant lounge</b><p class="mut">Elegant lounge with designer sofa and warm lighting.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80" alt="Bright modern interior with wooden accents" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Bright modern interior</b><p class="mut">Bright modern interior with wooden accents.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80" alt="Modern home interior with clean lines and plants" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Modern home interior</b><p class="mut">Modern home interior with clean lines and plants.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=80" alt="Warm living space with sofa and coffee table" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Warm living space</b><p class="mut">Warm living space with sofa and coffee table.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80" alt="Open-plan home interior with natural light" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Open-plan home interior</b><p class="mut">Open-plan home interior with natural light.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1600&q=80" alt="Luxury living room with statement lighting" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Luxury living room</b><p class="mut">Luxury living room with statement lighting.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1600&q=80" alt="Calm bedroom with wooden furniture and soft bedding" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Calm bedroom</b><p class="mut">Calm bedroom with wooden furniture and soft bedding.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1600&q=80" alt="Stylish interior with sofa, rug and wall art" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Stylish interior</b><p class="mut">Stylish interior with sofa, rug and wall art.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1617364852223-75f57e78dc96?auto=format&fit=crop&w=1600&q=80" alt="Cozy reading nook with armchair and bookshelf" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Cozy reading nook</b><p class="mut">Cozy reading nook with armchair and bookshelf.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=1600&q=80" alt="Dining room with wooden table and warm decor" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Dining room</b><p class="mut">Dining room with wooden table and warm decor.</p></figcaption></figure><figure class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1583845112203-454c7bc4f05f?auto=format&fit=crop&w=1600&q=80" alt="Home office corner with desk and warm lamp light" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><figcaption class="card-body"><b>Home office corner</b><p class="mut">Home office corner with desk and warm lamp light.</p></figcaption></figure></div></section>
+
+<section id="custom" class="wrap reveal"><div class="grid g2"><div><p class="eyebrow">Made-to-Order</p><h2>Your room is not standard. Your furniture shouldn't be either.</h2><p class="lead">Bring your room measurements, a photo, or just an idea. Our demo custom service designs, quotes and builds it for your exact space.</p><ol><li><b>Measure &amp; discuss (Day 1):</b> Visit or video call — room size, storage needs, wood and fabric choices.</li><li><b>Design &amp; quote (3–5 days):</b> Sketch, materials, finish and a fixed demo price before making starts.</li><li><b>Build (3–5 weeks):</b> Workshop build with progress photos for larger pieces.</li><li><b>Deliver &amp; install:</b> White-glove delivery, placement, packaging removed.</li></ol><p><span class="badge">Custom beds</span> <span class="badge">TV units</span> <span class="badge">Wardrobes</span> <span class="badge">Study units</span> <span class="badge">Dining sets</span></p></div><div class="card"><div class="thumb tall"><img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=80" alt="Custom wooden furniture and shelves" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80'"></div><div class="card-body"><h3>Custom, from ₹18,000</h3><p class="mut">Starting demo price for a custom bedside unit or study table. Larger wardrobes, beds and dining sets are quoted by size and wood — teak, walnut, acacia or mango wood, with fabric and finish samples in-store.</p></div></div></div></section>
+
+<section class="wrap reveal"><p class="eyebrow">Loved at Home</p><h2>What customers say in this demo.</h2><div class="grid g3">
+<blockquote class="card card-body"><p class="quote">"The sofa changed our evenings. It is deep, solid, and still looks new after a year of daily use."</p><p><b>— Priya S., Manipal</b><br><span class="mut">Malabar Sofa + Coffee Table</span></p></blockquote>
+<blockquote class="card card-body"><p class="quote">"They measured our awkward bedroom wall and built a wardrobe that fits it perfectly. No wasted corner."</p><p><b>— Rakesh &amp; Anitha, Udupi</b><br><span class="mut">Custom Wardrobe</span></p></blockquote>
+<blockquote class="card card-body"><p class="quote">"Delivery team placed everything, took the packaging away, and even levelled the dining table. Very easy."</p><p><b>— Maria D., Mangaluru</b><br><span class="mut">Family Dining Set</span></p></blockquote>
+</div></section>
+
+<section class="wrap reveal"><div class="card" style="padding:28px;text-align:center"><p class="eyebrow">Our Promise</p><h2>If it does not belong in your home, we will not sell it to you.</h2><p class="lead" style="max-width:760px;margin:0 auto">Visit, sit, touch the walnut, cane and brass, and take your time. We will measure, advise honestly — including when a smaller piece, a different wood, or no purchase at all is the right answer — and only then build, deliver and place furniture made for the room it will live in, for years, not seasons.</p><p style="margin-top:18px"><a class="cta" href="#enquiry">Book a Visit →</a></p></div></section>
+
+<section id="visit" class="wrap reveal"><div class="grid g2"><div><p class="eyebrow">Showroom</p><h2>Visit, sit, touch the wood.</h2><p><b>CASA LIVING — Demo Showroom</b><br>Main Road, Udupi, Karnataka 576101, India<br>Demo phone: <a href="tel:+919876543215">+91 98765 43215</a><br>Demo email: hello@casaliving.demo</p><h3>Showroom hours</h3><p>Monday – Saturday: 10:00 AM – 8:00 PM<br>Sunday: 11:00 AM – 6:00 PM<br>Closed on major public holidays in this demo listing.</p><h3>Delivery &amp; warranty (demo terms)</h3><p>Delivery in Udupi, Manipal and Mangaluru within 5–10 working days for ready pieces; custom pieces in 3–5 weeks. Free installation for beds, wardrobes and dining sets. Demo warranty: 5 years on frames, 2 years on mechanisms and hinges, 1 year on fabric and finish under normal home use. Coastal-care tips are given at delivery.</p></div>
+<div class="form" id="enquiry"><h2 style="color:#fff">Book a visit / Enquire</h2><p>Front-end demo form only — nothing is sent to a real business.</p><form id="enquiryForm"><label for="name">Name</label><input id="name" name="name" required placeholder="Your full name"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required placeholder="+91 …"><label for="interest">I am interested in</label><select id="interest" name="interest"><option>Living Room</option><option>Bedroom</option><option>Dining</option><option>Office</option><option>Decor</option><option>Custom / Made-to-Order</option><option>Whole-home styling</option></select><label for="message">Message / room size</label><textarea id="message" name="message" rows="4" placeholder="Example: 3BHK living room, need a 3-seater sofa and TV unit"></textarea><p><button class="submit" type="submit">Send Enquiry →</button></p><div id="confirm" role="status">Thank you! Your demo enquiry has been received. Our demo team will call you within one working day to confirm your visit. Demo contact: +91 98765 43215.</div></form></div></div></section>
+</main>
+<footer><div class="wrap"><p><b>CASA LIVING</b> — Furniture &amp; Home Decor, Udupi (demo).<br>Demo contact: +91 98765 43215 • Main Road, Udupi, Karnataka 576101.</p><p class="mut">Demo portfolio site — fictional brand for demonstration only, not a real business. Prices, hours and testimonials are demo content.</p></div></footer>
+<script>
+document.querySelectorAll('.tab').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-pressed','false')});btn.classList.add('active');btn.setAttribute('aria-pressed','true');var f=btn.getAttribute('data-filter');document.querySelectorAll('.product').forEach(function(p){p.classList.toggle('hide', f!=='all' && p.getAttribute('data-category')!==f)})})});
+document.getElementById('enquiryForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('confirm').style.display='block';document.getElementById('confirm').focus()});
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+var progress=document.getElementById('progress');var hdr=document.querySelector('header');var heroImg=document.querySelector('.hero-img img');var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function onScroll(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;if(progress&&max>0){progress.style.width=(h.scrollTop/max*100)+'%'}if(hdr){hdr.classList.toggle('scrolled',h.scrollTop>10)}if(heroImg&&!reduced&&h.scrollTop<800){heroImg.style.transform='translateY('+(h.scrollTop*0.12)+'px) scale(1.06)'}}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+document.querySelectorAll('img').forEach(function(img){img.addEventListener('error',function(){if(img.dataset.fbk)return;img.dataset.fbk='1';var t=img.src.indexOf('1586023492125')>-1?'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=80':'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80';if(img.src.split('?')[0]!==t.split('?')[0]){img.src=t;}},{once:true})});
+</script>
+<script>
+try{setTimeout(function(){document.querySelectorAll('.reveal:not(.on)').forEach(function(el){el.classList.add('on')})},2000)}catch(e){}
+</script>
+<!-- Sanjai creative-web, Rule 0: ONE small motion piece only.
+     GSAP 3.15 + ScrollTrigger reveals + Lenis 1.3.27 smooth scroll, via CDN.
+     No Barba, no dark palette, no copied reference assets/text.
+     Graceful degradation: if any CDN fails, the existing native
+     IntersectionObserver reveal above still works, because this block
+     runs only when window.gsap / window.Lenis exist. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return; // Fade-only native behaviour stays; no Lenis, no GSAP scroll motion.
+  var hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+  var lenis = null;
+
+  // Lenis: wheel-only smooth scroll. anchors:false so our own anchor
+  // handler below is the only anchor logic, and keyboard / Tab focus
+  // scrolling is left to the browser (Lenis does not hijack keys).
+  if (typeof window.Lenis !== 'undefined') {
+    try {
+      lenis = new window.Lenis({ lerp: 0.09, smoothWheel: true, anchors: false });
+    } catch (e) { lenis = null; }
+  }
+
+  if (hasGsap) {
+    window.gsap.registerPlugin(window.ScrollTrigger);
+    if (lenis) {
+      lenis.on('scroll', window.ScrollTrigger.update);
+      window.gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+      window.gsap.ticker.lagSmoothing(0);
+    }
+    // Augment, don't replace, the native reveal: animate inner cards /
+    // chapters on enter only, then clear inline props so CSS hover
+    // transforms keep working. No pre-hidden state, so a ScrollTrigger
+    // failure never leaves content invisible.
+    window.ScrollTrigger.batch('.card, .chapter', {
+      start: 'top 88%',
+      once: true,
+      onEnter: function (batch) {
+        window.gsap.fromTo(batch,
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out', stagger: 0.08, overwrite: true, clearProps: 'transform,opacity' });
+      }
+    });
+    window.gsap.fromTo('.hero-text',
+      { y: 18, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', clearProps: 'transform,opacity' });
+  }
+
+  // Anchor links: Lenis scrollTo when Lenis is running, native otherwise.
+  // Keyboard scrolling is untouched; focus is moved without a second scroll.
+  if (lenis) {
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var id = link.getAttribute('href');
+        if (id.length < 2) return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -84, duration: 1.1 });
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      });
+    });
+  }
+})();
+</script>
+<!-- CurtainsJS 8.1.6 hero layer (Sanjai pack, one plane only, hero image only).
+     Pattern taken from the verified example in the local curtainsjs clone:
+     examples/multiple-planes-scroll-effect/js/multiple.planes.parallax.setup.js
+     (Curtains + Plane, lerped scrollEffect clamped to +/-60, vertex bend +
+     small scale on scroll). The UMD bundle exposes window.Curtains /
+     window.Plane. No other image is turned into a plane. -->
+<script src="https://cdn.jsdelivr.net/npm/curtainsjs@8.1.6/dist/curtains.umd.min.js"></script>
+<script>
+(function () {
+  // Skip entirely under reduced motion, and on very small screens.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.innerWidth < 768) return;
+
+  function initCurtainsHero() {
+    // CDN failed: window.Curtains/Plane absent -> plain hero img stays, page works.
+    if (typeof window.Curtains === 'undefined' || typeof window.Plane === 'undefined') return;
+    var planeEl = document.getElementById('hero-plane');
+    if (!planeEl || !window.WebGLRenderingContext) return;
+
+    var scrollEffect = 0;
+    var curtains;
+    try {
+      curtains = new window.Curtains({
+        container: 'curtains-canvas',
+        pixelRatio: Math.min(1.5, window.devicePixelRatio) // limit pixel ratio, as in the example
+      });
+    } catch (e) { return; }
+
+    curtains.onError(function () {
+      // WebGL/context failure: never add curtains-ready, so the hero img stays visible.
+      document.body.classList.add('no-curtains');
+    }).onContextLost(function () {
+      try { curtains.restoreContext(); } catch (e) {}
+    }).onRender(function () {
+      // Ease the scroll effect back to 0 each frame, as in the example.
+      scrollEffect = curtains.lerp(scrollEffect, 0, 0.075);
+    }).onScroll(function () {
+      var delta = curtains.getScrollDeltas();
+      delta.y = -delta.y;
+      if (delta.y > 60) delta.y = 60;
+      else if (delta.y < -60) delta.y = -60;
+      if (Math.abs(delta.y) > Math.abs(scrollEffect)) {
+        scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.5);
+      }
+    });
+
+    // Vertex/fragment shaders copied from the verified example above.
+    var vs = [
+      'precision mediump float;',
+      'attribute vec3 aVertexPosition;',
+      'attribute vec2 aTextureCoord;',
+      'uniform mat4 uMVMatrix;',
+      'uniform mat4 uPMatrix;',
+      'uniform mat4 planeTextureMatrix;',
+      'varying vec3 vVertexPosition;',
+      'varying vec2 vTextureCoord;',
+      'uniform float uScrollEffect;',
+      'void main() {',
+      '  vec3 vertexPosition = aVertexPosition;',
+      '  vertexPosition.x += sin((vertexPosition.y / 1.5 + 1.0) * 3.141592) * (sin(uScrollEffect / 2000.0));',
+      '  gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);',
+      '  vVertexPosition = vertexPosition;',
+      '  vTextureCoord = (planeTextureMatrix * vec4(aTextureCoord, 0.0, 1.0)).xy;',
+      '}'
+    ].join('\n');
+
+    var fs = [
+      'precision mediump float;',
+      'varying vec3 vVertexPosition;',
+      'varying vec2 vTextureCoord;',
+      'uniform sampler2D planeTexture;',
+      'void main() {',
+      '  gl_FragColor = texture2D(planeTexture, vTextureCoord);',
+      '}'
+    ].join('\n');
+
+    var plane;
+    try {
+      plane = new window.Plane(curtains, planeEl, {
+        vertexShader: vs,
+        fragmentShader: fs,
+        widthSegments: 10,
+        heightSegments: 10,
+        uniforms: {
+          scrollEffect: { name: 'uScrollEffect', type: '1f', value: 0 }
+        }
+      });
+    } catch (e) { return; }
+
+    plane.onReady(function () {
+      // Only now is the original hero img hidden; the WebGL plane replaces it.
+      document.body.classList.add('curtains-ready');
+    }).onRender(function () {
+      // Gentle, capped scroll effect, as in the example: slight rotation,
+      // Y scale on plane and texture, plus the vertex bend via the uniform.
+      plane.rotation.z = Math.abs(scrollEffect) / 750;
+      plane.scale.y = 1 + Math.abs(scrollEffect) / 300;
+      if (plane.textures[0]) plane.textures[0].scale.y = 1 + Math.abs(scrollEffect) / 150;
+      plane.uniforms.scrollEffect.value = scrollEffect;
+    });
+  }
+
+  // The example inits on window load; run at once if load already fired.
+  if (document.readyState === 'complete') initCurtainsHero();
+  else window.addEventListener('load', initCurtainsHero);
+})();
+</script>
+</body>
+</html>

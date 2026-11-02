@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!-- Demo portfolio site — CRUMB & CRAFT is a fictional demo brand, not a real business. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crumb &amp; Craft — Artisan Bakery, Udupi</title>
+<meta name="description" content="Demo portfolio site for Crumb & Craft, a fictional artisan bakery in Udupi. Breads, cakes, pastries, cookies and custom celebration cakes.">
+<style>
+:root{--cream:#fff8ec;--cream2:#fdf0d5;--butter:#f6c453;--brown:#4a2c1a;--brown2:#7a4a2b;--pink:#f7c8d3;--ink:#2b1d12;--mut:#6f5b4a;--line:#ecd9b8;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,serif;color:var(--ink);background:var(--cream);line-height:1.65}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif}
+a{color:var(--brown)}img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:linear-gradient(135deg,#f6c453,#e8a35c);transition:transform .8s ease}.hero-img img{height:100%;aspect-ratio:4/3}.gallery img{height:100%;aspect-ratio:1/1}.card img:hover,.gallery img:hover{transform:scale(1.06)}#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#f6c453,#4a2c1a);width:0;z-index:100}header.scrolled{box-shadow:0 10px 30px rgba(74,44,26,.18)}section{scroll-margin-top:90px}.hero-img{will-change:transform}
+header{position:sticky;top:0;z-index:30;background:rgba(255,248,236,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{font-family:Georgia,serif;font-weight:900;font-size:24px;letter-spacing:-.02em}.logo span{color:#c98a1b}
+nav{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;font-size:14px}nav a{text-decoration:none}
+.btn{display:inline-block;background:var(--brown);color:#fff;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:800;border:0;cursor:pointer}.btn.yellow{background:var(--butter);color:var(--brown)}
+.wrap{max-width:1180px;margin:auto;padding:0 20px 70px}
+.hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;padding:36px 0 28px}.hero>*{position:relative;z-index:1}#flour-dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.9}
+.hero h1{font-size:clamp(42px,6vw,72px);line-height:.95;letter-spacing:-.03em;margin:10px 0}
+.hero p{font-size:18px;color:var(--mut)} .eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:12px;font-weight:900;color:#b7791f}
+.hero-img{border-radius:28px;overflow:hidden;aspect-ratio:4/3.4;box-shadow:0 24px 60px rgba(74,44,26,.22);background:#e8d3a8}
+.hero-img.small{aspect-ratio:4/3}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.chip{background:#fff;border:1px solid var(--line);padding:7px 12px;border-radius:999px;font-size:13px;font-weight:700}
+section{padding:34px 0}h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.02em;margin:8px 0 12px}.lead{color:var(--mut);font-size:18px;max-width:820px}
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.hero,.g3,.g2,.g4{grid-template-columns:1fr}.hero-img{aspect-ratio:4/3}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 10px 30px rgba(74,44,26,.07)}
+.card img{border-radius:16px;aspect-ratio:4/3;background:#e8d3a8}
+.price{font-weight:900;color:var(--brown);font-size:18px}.tag{display:inline-block;background:var(--cream2);border:1px solid var(--line);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:800}.tab[aria-pressed="true"]{background:var(--brown);color:#fff}
+.menu-item{display:none}.menu-item.show{display:block}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.gallery figure{margin:0;border-radius:20px;overflow:hidden;aspect-ratio:1/1;background:#e8d3a8}.gallery figcaption{background:var(--brown);color:#fff;padding:10px 12px;font-size:13px;font-weight:700}
+@media(max-width:800px){.gallery{grid-template-columns:1fr 1fr}}
+form label{display:block;font-weight:800;margin:12px 0 5px}input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;font:inherit}
+.reveal{opacity:0;transform:translateY(22px);transition:transform .7s ease,opacity .7s ease}.reveal.on{opacity:1;transform:none}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b7791f;outline-offset:3px}
+.chapter{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 12px 32px rgba(74,44,26,.07)}
+.chapter .roman{font-family:Georgia,serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#b7791f;font-weight:900}
+.pull{font-family:Georgia,serif;font-size:clamp(22px,3vw,30px);line-height:1.3;color:var(--brown);border-left:5px solid var(--butter);padding:6px 0 6px 18px;margin:22px 0}
+.baker-note{background:var(--brown);color:#fff;border-radius:24px;padding:26px}
+.baker-note h3,.baker-note p{color:#fff}.baker-note p{color:#f7e8c8}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}img{opacity:1;transition:none}.card img:hover,.gallery img:hover{transform:none}}
+.banner{background:var(--brown);color:#fff;border-radius:26px;padding:30px}
+.banner h2{color:#fff}.small{color:var(--mut);font-size:14px}footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mut);font-size:14px}
+blockquote{margin:0;font-size:18px}.stars{color:#d9930d;letter-spacing:2px}
+</style></head><body><div id="progress" aria-hidden="true"></div>
+<header><div class="nav"><div class="logo">Crumb <span>&amp;</span> Craft</div><nav aria-label="Main"><a href="#story">Story</a><a href="#menu">Menu</a><a href="#specials">Today</a><a href="#gallery">Gallery</a><a href="#custom">Custom Cakes</a><a href="#visit">Visit</a></nav><a class="btn" href="#custom">Order a Cake →</a></div></header>
+<main class="wrap">
+<section class="hero" id="top">
+<canvas id="flour-dust" aria-hidden="true"></canvas>
+<div><p class="eyebrow">✦ Artisan Bakery • Udupi, Karnataka • Demo Portfolio</p>
+<h1>Baked at dawn.<br>Remembered all day.</h1>
+<p class="serif" style="font-size:21px;color:var(--brown)"><em>Our dawn-baking promise: if it is on your table this morning, it was shaped, proofed and baked this morning — never reheated, never relabelled, never rushed.</em></p>
+<p>Slow-fermented breads, butter-laminated pastries and celebration cakes made fresh every morning — no shortcuts, no day-old shortcuts. This is a fictional demo bakery, built to show how a real bakery website should feel, taste and sell.</p>
+<div class="chips"><span class="chip">🥖 Baked fresh daily</span><span class="chip">🎂 Custom cakes</span><span class="chip">🚲 Udupi delivery</span><span class="chip">🌾 Eggless options</span></div>
+<p><a class="btn" href="#menu">Explore the menu</a> &nbsp; <a class="btn yellow" href="#visit">Visit us in Udupi</a></p>
+<p class="small">Demo contact: +91 98765 43213 &nbsp;•&nbsp; Open today 7:30 AM – 9:00 PM</p></div>
+<div class="hero-img"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2400&q=85" alt="Freshly baked artisan bread loaves on a wooden table" loading="eager"></div>
+</section>
+
+<section id="story" class="reveal"><p class="eyebrow">Our story</p><h2>From one oven, one recipe book, and a lot of patience.</h2><div class="grid g2"><p class="lead">Crumb &amp; Craft began as a small neighbourhood oven: bread mixed the night before, shaped by hand at 4 AM, and sold out by breakfast. Today the routine is the same, only the oven is bigger. We use local wheat, cultured butter, Belgian chocolate and seasonal fruit — and we still taste every batch before it reaches the counter.</p><div class="grid g2"><div class="card"><strong>48 hours</strong><br><span class="small">Slow fermentation for our sourdough, for deeper flavour and an easier crumb.</span></div><div class="card"><strong>27 layers</strong><br><span class="small">Hand-laminated croissants, folded and rested — never rushed, never frozen.</span></div><div class="card"><strong>100% fresh</strong><br><span class="small">Unsold bread at close becomes breadcrumbs and bread pudding. Nothing is sold next day as fresh.</span></div><div class="card"><strong>Eggless first</strong><br><span class="small">Most cakes and cookies have an eggless version, made in a separate batch on request.</span></div></div></div></section>
+
+<section id="story-chapters" class="reveal"><p class="eyebrow">The story, in three chapters</p><h2>Warm bread. Patient hands. A life, marked sweetly.</h2><p class="lead">Every loaf and cake at Crumb &amp; Craft follows the same quiet rhythm — early, slow, and made for someone by name, not for a shelf.</p>
+<div class="grid g3">
+<article class="chapter"><p class="roman">Chapter I</p><h3>Before Sunrise</h3><p>At 4 a.m. the oven is already warm and the first dough is cool from its overnight rest. Hands dusted with flour shape each loaf slowly, so the crust crackles when it cools and the crumb stays soft inside. The first smell is butter melting into pastry, then cardamom, then warm bread drifting out before the shutters even go up.</p><p class="small">This is why the 7:30 a.m. bread tastes different: it has not waited for you. You have arrived just in time for it.</p></article>
+<article class="chapter"><p class="roman">Chapter II</p><h3>Recipes That Travelled With Family</h3><p>Our recipes did not start in a factory manual. They travelled in notebooks, in the memory of a grandmother's festival cake, in a father's Sunday bread, in the exact pinch of cardamom that makes a bun taste like home. We kept the soul of those recipes and refined only the technique — slower fermentation, cultured butter, real vanilla — so a childhood taste can survive, beautifully, in a grown-up bakery.</p><p class="small">Seasonal fruit, local wheat and Belgian chocolate are chosen the same way: would we serve this at our own table?</p></article>
+<article class="chapter"><p class="roman">Chapter III</p><h3>The Cake That Marks a Life</h3><p>A birthday, a first job, a wedding, a baby's first year — a cake is rarely just a cake. It is the moment the room goes quiet, the candles are lit, and everyone leans in. So we bake celebration cakes fresh on the day, finish them by hand, and write the name carefully, as if it were our own family at the table. When the cake is cut, the memory should taste as sweet as it looks.</p><p class="small">That is why we ask for 48 hours: not to delay you, but to give a life's moment the time it deserves.</p></article>
+</div>
+<blockquote class="pull">“We do not bake for the counter. We bake for the morning you will remember.”</blockquote>
+<div class="baker-note"><h3>A note from our head baker</h3><p>“I still taste every batch before it leaves the kitchen. If a croissant is not flaky enough, or a loaf has not sung when it cools, it does not go out. Warm bread forgives nothing — and that honesty is what I want you to taste.”</p><p><strong>— Head Baker, Crumb &amp; Craft (Demo)</strong></p></div>
+<blockquote class="pull">“A good loaf should crackle. A good cake should make the room go quiet. Everything else is just decoration.”</blockquote>
+</section>
+
+<section id="menu" class="reveal"><p class="eyebrow">Full menu • Prices in INR</p><h2>Everything, priced honestly.</h2><p class="lead">Filter by what you crave. Prices include GST. Whole cakes are made to order with 24 hours' notice; celebration cakes need 48 hours.</p>
+<div class="tabs" role="group" aria-label="Menu filters">
+<button class="tab" aria-pressed="true" data-filter="all">All</button><button class="tab" aria-pressed="false" data-filter="breads">Breads</button><button class="tab" aria-pressed="false" data-filter="cakes">Cakes</button><button class="tab" aria-pressed="false" data-filter="pastries">Pastries</button><button class="tab" aria-pressed="false" data-filter="cookies">Cookies</button><button class="tab" aria-pressed="false" data-filter="celebration">Celebration Cakes</button>
+</div>
+<div class="grid g3" id="menuGrid">
+<article class="card menu-item show" data-cat="breads"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80" alt="Rustic sourdough bread" loading="lazy"><h3>Country Sourdough — 800 g</h3><p class="small">48-hour ferment, stone-milled wheat, crackling crust.</p><p><span class="price">₹240</span> <span class="tag">Bestseller</span></p></article>
+<article class="card menu-item show" data-cat="breads"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=1600&q=80" alt="Fresh bread loaves" loading="lazy"><h3>Whole Wheat Sandwich Loaf — 700 g</h3><p class="small">Soft, honey-touched, perfect for toast and sandwiches.</p><p><span class="price">₹160</span></p></article>
+<article class="card menu-item show" data-cat="breads"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1600&q=80" alt="Golden croissants" loading="lazy"><h3>Multigrain Seeded Loaf — 700 g</h3><p class="small">Oats, flax, sesame and sunflower, toasted on top.</p><p><span class="price">₹190</span></p></article>
+<article class="card menu-item show" data-cat="breads"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1585478259715-876acc5be8eb?auto=format&fit=crop&w=1600&q=80" alt="Golden butter brioche rolls" loading="lazy"><h3>Butter Brioche — Pack of 4</h3><p class="small">Rich, pillowy rolls for burgers, pav bhaji or jam.</p><p><span class="price">₹180</span></p></article>
+<article class="card menu-item show" data-cat="breads"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1600&q=80" alt="Garlic and herb focaccia bread" loading="lazy"><h3>Garlic &amp; Herb Focaccia</h3><p class="small">Olive oil, rosemary, roasted garlic, flaky salt.</p><p><span class="price">₹220</span></p></article>
+<article class="card menu-item show" data-cat="breads"><h3>Cinnamon Morning Buns — Pack of 2</h3><p class="small">Soft brioche swirled with cinnamon and brown sugar.</p><p><span class="price">₹150</span></p></article>
+<article class="card menu-item show" data-cat="cakes"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=80" alt="Chocolate layer cake" loading="lazy"><h3>Belgian Chocolate Truffle — 500 g</h3><p class="small">Dark chocolate sponge, silky ganache, cocoa dust.</p><p><span class="price">₹650</span> <span class="tag">Eggless available</span></p></article>
+<article class="card menu-item show" data-cat="cakes"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1600&q=80" alt="Strawberry cream cake" loading="lazy"><h3>Fresh Strawberry Cream — 500 g</h3><p class="small">Vanilla chiffon, whipped cream, seasonal strawberries.</p><p><span class="price">₹620</span></p></article>
+<article class="card menu-item show" data-cat="cakes"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1600&q=80" alt="Celebration cake with berries" loading="lazy"><h3>Mango &amp; Passionfruit Chiffon — 500 g</h3><p class="small">Light, tropical, Alphonso mango in season.</p><p><span class="price">₹680</span></p></article>
+<article class="card menu-item show" data-cat="cakes"><h3>Classic New York Cheesecake — Slice</h3><p class="small">Baked, dense, with a buttery biscuit base.</p><p><span class="price">₹280</span> per slice</p></article>
+<article class="card menu-item show" data-cat="cakes"><h3>Carrot &amp; Walnut Cake — 500 g</h3><p class="small">Spiced sponge, cream-cheese frosting, toasted walnuts.</p><p><span class="price">₹590</span></p></article>
+<article class="card menu-item show" data-cat="cakes"><h3>Basque Burnt Cheesecake — 500 g</h3><p class="small">Caramelised top, custardy centre, served at room temperature.</p><p><span class="price">₹750</span></p></article>
+<article class="card menu-item show" data-cat="pastries"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1600&q=80" alt="Butter croissants" loading="lazy"><h3>Butter Croissant</h3><p class="small">27 layers, cultured butter, baked every 2 hours.</p><p><span class="price">₹110</span></p></article>
+<article class="card menu-item show" data-cat="pastries"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=1600&q=80" alt="Coffee and pastry" loading="lazy"><h3>Pain au Chocolat</h3><p class="small">Flaky pastry wrapped around two dark chocolate batons.</p><p><span class="price">₹140</span></p></article>
+<article class="card menu-item show" data-cat="pastries"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1600&q=80" alt="Glazed doughnuts" loading="lazy"><h3>Glazed Brioche Doughnut</h3><p class="small">Vanilla glaze, soft brioche, made fresh at 7 AM.</p><p><span class="price">₹120</span></p></article>
+<article class="card menu-item show" data-cat="pastries"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=1600&q=80" alt="Cupcakes with frosting" loading="lazy"><h3>Vanilla Bean Cupcake</h3><p class="small">Madagascan vanilla, buttercream swirl, sprinkles.</p><p><span class="price">₹130</span></p></article>
+<article class="card menu-item show" data-cat="pastries"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=1600&q=80" alt="Almond Danish pastry" loading="lazy"><h3>Almond Danish</h3><p class="small">Frangipane, toasted almonds, light glaze.</p><p><span class="price">₹160</span></p></article>
+<article class="card menu-item show" data-cat="pastries"><h3>Apple &amp; Cinnamon Turnover</h3><p class="small">Slow-cooked apples, puff pastry, cinnamon sugar.</p><p><span class="price">₹150</span></p></article>
+<article class="card menu-item show" data-cat="cookies"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1600&q=80" alt="Chocolate chip cookies" loading="lazy"><h3>Dark Chocolate Chip Cookie</h3><p class="small">Brown butter, rested dough, molten chocolate pools.</p><p><span class="price">₹90</span></p></article>
+<article class="card menu-item show" data-cat="cookies"><h3>Double Chocolate Brownie</h3><p class="small">Fudgy centre, crackled top, 70% dark chocolate.</p><p><span class="price">₹130</span></p></article>
+<article class="card menu-item show" data-cat="cookies"><h3>Oats &amp; Raisin Cookie — Pack of 4</h3><p class="small">Chewy oats, plump raisins, a hint of cinnamon.</p><p><span class="price">₹220</span></p></article>
+<article class="card menu-item show" data-cat="cookies"><h3>Butter Shortbread — Pack of 6</h3><p class="small">Classic, crumbly, lightly salted.</p><p><span class="price">₹240</span></p></article>
+<article class="card menu-item show" data-cat="celebration"><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1600&q=80" alt="Decorated celebration cake" loading="lazy"><h3>Classic Celebration Cake — from ₹1,400</h3><p class="small">Buttercream finish, simple florals or sprinkles, any flavour below.</p><p><span class="price">0.5 kg ₹1,400 • 1 kg ₹2,400 • 2 kg ₹4,400</span></p></article>
+<article class="card menu-item show" data-cat="celebration"><h3>Premium Fondant Cake — from ₹2,200</h3><p class="small">Hand-modelled figures, themed designs, gold accents.</p><p><span class="price">0.5 kg ₹2,200 • 1 kg ₹3,800 • 2 kg ₹7,000</span></p></article>
+<article class="card menu-item show" data-cat="celebration"><h3>Two-Tier Wedding Cake — from ₹6,500</h3><p class="small">Two tiers, fresh flowers, tasting box included.</p><p><span class="price">2 kg ₹6,500 • 3 kg ₹9,200 • 5 kg ₹14,500</span></p></article>
+<article class="card menu-item show" data-cat="celebration"><h3>Photo / Print Cake — from ₹1,800</h3><p class="small">Edible print, buttercream border, any photo you send.</p><p><span class="price">0.5 kg ₹1,800 • 1 kg ₹2,900 • 2 kg ₹5,400</span></p></article>
+</div>
+<p class="small">Allergen note (demo): items may contain wheat, milk, egg, nuts and soy. Tell us about allergies in the order form and we will confirm what is safe.</p></section>
+
+<section id="specials" class="reveal"><p class="eyebrow">Daily specials</p><h2>Fresh out of the oven, every day.</h2><div class="grid g4">
+<div class="card"><span class="tag">Monday</span><h3>Cardamom Bun Day</h3><p>Swedish-style cardamom buns, pearl sugar. <strong>₹130</strong></p></div>
+<div class="card"><span class="tag">Wednesday</span><h3>Sourdough Sandwich</h3><p>Grilled sourdough, cheese, tomato, pesto. <strong>₹260</strong></p></div>
+<div class="card"><span class="tag">Friday</span><h3>Chocolate Babka</h3><p>Twisted chocolate brioche, limited to 20 loaves. <strong>₹320</strong></p></div>
+<div class="card"><span class="tag">Sunday</span><h3>Family Bread Basket</h3><p>Sourdough, focaccia, brioche and butter. <strong>₹499</strong></p></div></div>
+<div class="banner" style="margin-top:18px"><h2>Today's pick: Belgian Chocolate Truffle</h2><p>Warm from the morning bake, with a tasting spoon of ganache on the side. Ask at the counter — when today's batch is gone, it's gone.</p><p><strong>500 g — ₹650</strong> &nbsp;•&nbsp; Eggless version available with a day's notice.</p></div></section>
+
+<section id="gallery" class="reveal"><p class="eyebrow">Gallery</p><h2>Come hungry. Leave happy.</h2>
+<div class="gallery">
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80" alt="Artisan bread" loading="lazy"><figcaption>Morning bread</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1600&q=80" alt="Dessert and cake" loading="lazy"><figcaption>Celebration cakes</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1600&q=80" alt="Doughnuts" loading="lazy"><figcaption>Weekend doughnuts</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=1600&q=80" alt="Cupcakes" loading="lazy"><figcaption>Cupcakes for parties</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=1600&q=80" alt="Coffee with pastry" loading="lazy"><figcaption>Coffee + croissant</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=1600&q=80" alt="Fresh loaves" loading="lazy"><figcaption>Fresh from the oven</figcaption></figure>
+</div></section>
+
+<section id="more-from-oven" class="reveal"><p class="eyebrow">More from the oven</p><h2>More from the oven.</h2><p class="lead">Fresh bakes, slow mornings and celebration cakes — twelve more moments from the Crumb &amp; Craft counter, all in 4K.</p>
+<div class="gallery">
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=1600&q=80" alt="Fresh bread cooling on a rack" loading="lazy"><figcaption>Cooling racks, 7 am</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1600&q=80" alt="Chocolate dessert in a glass" loading="lazy"><figcaption>Chocolate dessert</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1600&q=80" alt="Cream dessert with berries" loading="lazy"><figcaption>Berry cream dessert</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1600&q=80" alt="White celebration cake" loading="lazy"><figcaption>White celebration cake</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1598373182133-52452f7691ef?auto=format&fit=crop&w=1600&q=80" alt="Layered cake slice" loading="lazy"><figcaption>Layered cake slice</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?auto=format&fit=crop&w=1600&q=80" alt="Croissant and coffee on a table" loading="lazy"><figcaption>Croissant and coffee</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?auto=format&fit=crop&w=1600&q=80" alt="Rustic bread loaf" loading="lazy"><figcaption>Rustic loaf</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=1600&q=80" alt="Fruit and pastry breakfast board" loading="lazy"><figcaption>Breakfast board</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=1600&q=80" alt="Baked goods on display" loading="lazy"><figcaption>Counter display</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=1600&q=80" alt="Freshly baked bread" loading="lazy"><figcaption>Freshly baked bread</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=1600&q=80" alt="Toast with toppings" loading="lazy"><figcaption>Morning toast</figcaption></figure>
+<figure><img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?auto=format&fit=crop&w=1600&q=80" alt="Baker shaping dough" loading="lazy"><figcaption>Shaping dough</figcaption></figure>
+</div></section>
+
+<section class="reveal"><div class="banner"><p class="eyebrow" style="color:#f6c453">Before you order</p><h2>Come for the warm bread. Stay for the moment.</h2><p>Walk in at 7:30 a.m., when the first loaves are still warm and the butter is still melting into the croissants. Taste before you choose, tell us whose day you are celebrating, and let us help you pick the cake, the flavour and the words that will make it theirs. Your table is waiting — the oven is already on.</p><p><a class="btn yellow" href="#custom">Order your celebration cake →</a></p></div></section>
+
+<section id="custom" class="reveal"><p class="eyebrow">Custom cake order • Front-end demo only</p><h2>Design your celebration cake.</h2><p class="lead">Fill this in and you will see a confirmation on this page. No payment or real order is taken here — this is a demo form for the portfolio.</p>
+<div class="grid g2"><form id="cakeForm" class="card" aria-label="Custom cake order form">
+<label for="cname">Your name *</label><input id="cname" required placeholder="e.g. Ananya Rao">
+<label for="cphone">Phone *</label><input id="cphone" required type="tel" placeholder="+91 …">
+<label for="flavour">Flavour *</label><select id="flavour" required><option value="">Choose a flavour</option><option>Belgian Chocolate Truffle</option><option>Vanilla Bean</option><option>Fresh Strawberry Cream</option><option>Mango &amp; Passionfruit</option><option>Carrot &amp; Walnut</option><option>Eggless Chocolate</option></select>
+<label for="size">Size &amp; tier *</label><select id="size" required><option value="">Choose a size</option><option data-price="1400">Classic — 0.5 kg — ₹1,400</option><option data-price="2400">Classic — 1 kg — ₹2,400</option><option data-price="4400">Classic — 2 kg — ₹4,400</option><option data-price="3800">Premium Fondant — 1 kg — ₹3,800</option><option data-price="6500">Two-Tier Wedding — 2 kg — ₹6,500</option></select>
+<p id="priceLine" aria-live="polite"><strong>Estimated price: —</strong></p>
+<label for="cdate">Delivery / pickup date *</label><input id="cdate" type="date" required>
+<label for="cmsg">Message on cake / notes</label><textarea id="cmsg" rows="3" placeholder="e.g. Happy Birthday, Aarav! Pink flowers, no nuts."></textarea>
+<label><input type="checkbox" id="eggless"> Eggless version, if available</label>
+<button class="btn" type="submit">Request this cake →</button><p class="small">Demo only: this form does not send a real order or payment.</p>
+</form>
+<div><div class="card"><h3>How custom cakes work</h3><p>1. You choose flavour, size and date.<br>2. We confirm design, price and pickup time.<br>3. We bake it fresh on the day — never frozen.<br><br><strong>Lead time:</strong> 48 hours for celebration cakes, 7 days for weddings.<br><strong>Pickup:</strong> from the Udupi shop, or delivery in Udupi town (see delivery note below).</p></div>
+<div id="confirm" class="card" style="display:none;margin-top:16px" role="status" aria-live="polite"></div></div></div></section>
+
+<section class="reveal"><p class="eyebrow">Testimonials</p><h2>Loved by neighbours, birthdays and brunches.</h2><div class="grid g3">
+<blockquote class="card"><p class="stars">★★★★★</p>“The sourdough is the real thing — crusty outside, soft inside. We buy two loaves every Saturday now.”<footer>— Meera S., Udupi</footer></blockquote>
+<blockquote class="card"><p class="stars">★★★★★</p>“They made my daughter's unicorn cake exactly like the picture, and it actually tasted as good as it looked.”<footer>— Divya K., Manipal</footer></blockquote>
+<blockquote class="card"><p class="stars">★★★★★</p>“Croissant + filter coffee on a rainy morning. This is my favourite corner in Udupi.”<footer>— Arjun P., Udupi</footer></blockquote></div></section>
+
+<section id="visit" class="reveal"><div class="grid g2">
+<div><p class="eyebrow">Visit us</p><h2>Hours &amp; location</h2>
+<p><strong>Crumb &amp; Craft — Artisan Bakery (Demo)</strong><br>12, Temple Road, Udupi,<br>Karnataka 576101, India<br>Demo phone: <a href="tel:+919876543213">+91 98765 43213</a><br>Demo email: hello@crumbandcraft.demo</p>
+<table><tr><th>Day</th><th>Hours</th></tr><tr><td>Monday – Saturday</td><td>7:30 AM – 9:00 PM</td></tr><tr><td>Sunday</td><td>8:00 AM – 9:00 PM</td></tr><tr><td>Fresh bread out</td><td>7:30 AM, 12:30 PM, 5:00 PM</td></tr></table></div>
+<div class="card"><h3>Delivery note</h3><p>Delivery within Udupi town: <strong>₹49</strong>, free above <strong>₹999</strong>. Manipal and nearby areas: ₹99, free above ₹1,499. Cakes travel in chilled boxes; please keep them refrigerated and take them out 30 minutes before serving.</p><p><strong>Pickup:</strong> order ahead, collect from the counter, and we will box it with candles and a card on request.</p><p class="small">This is a demo portfolio site. Address, phone, prices and hours are fictional and for demonstration only.</p><p><a class="btn" href="#custom">Start a custom cake order</a></p></div>
+</div></section>
+</main>
+<footer><div class="wrap" style="padding-bottom:0">Crumb &amp; Craft — Demo portfolio site. Fictional brand, not a real business. &nbsp;•&nbsp; Demo contact +91 98765 43213 &nbsp;•&nbsp; <a href="#top">Back to top ↑</a></div></footer>
+<script>
+document.querySelectorAll('.tab').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(b){b.setAttribute('aria-pressed','false')});btn.setAttribute('aria-pressed','true');var f=btn.dataset.filter;document.querySelectorAll('.menu-item').forEach(function(it){it.classList.toggle('show',f==='all'||it.dataset.cat===f)});});});
+var size=document.getElementById('size'),priceLine=document.getElementById('priceLine');size.addEventListener('change',function(){var o=size.selectedOptions[0];priceLine.innerHTML=o&&o.dataset.price?'<strong>Estimated price: ₹'+Number(o.dataset.price).toLocaleString('en-IN')+'</strong>':'<strong>Estimated price: —</strong>'});var dateEl=document.getElementById('cdate');dateEl.min=new Date().toISOString().split('T')[0];
+document.getElementById('cakeForm').addEventListener('submit',function(e){e.preventDefault();var box=document.getElementById('confirm');box.style.display='block';box.innerHTML='<h3>🎂 Thank you, '+document.getElementById('cname').value+'!</h3><p>Your demo request is noted: <strong>'+document.getElementById('flavour').value+'</strong>, <strong>'+size.selectedOptions[0].text+'</strong>, for <strong>'+dateEl.value+'</strong>'+(document.getElementById('eggless').checked?' (eggless)':'')+'.<br>Message: '+(document.getElementById('cmsg').value||'—')+'<br><em>This is a front-end demo confirmation only — no real order or payment was taken.</em></p>';box.scrollIntoView({behavior:'smooth'});});
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script><script>
+(function(){
+var FALLBACKS=["https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80","https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1600&q=80"];
+document.querySelectorAll("img").forEach(function(img){
+  img.addEventListener("error",function(){
+    if(img.dataset.fallback){return;}
+    img.dataset.fallback="1";
+    img.onerror=null;
+    /* Swap once to a DIFFERENT URL: non-hero images fall back to the hero
+       image at w=1600; the hero itself falls back to the second known image,
+       so the fallback is never the same URL that just failed. */
+    img.src=(img.src!==FALLBACKS[0])?FALLBACKS[0]:FALLBACKS[1];
+  });
+});
+var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var bar=document.getElementById("progress"), heroImg=document.querySelector(".hero-img img");
+window.addEventListener("scroll",function(){
+  var h=document.documentElement;
+  var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+  if(bar){bar.style.width=(p*100)+"%";}
+  document.querySelector("header").classList.toggle("scrolled",h.scrollTop>10);
+  if(!reduced && heroImg){heroImg.style.transform="translateY("+(Math.min(h.scrollTop,600)*0.08)+"px) scale(1.02)";}
+},{passive:true});
+})();
+</script>
+<!-- Sanjai creative-web, Rule 0: ONE small motion layer only.
+     GSAP 3.15 + ScrollTrigger + Lenis 1.3.27 via CDN. Own bakery content only;
+     light cream/chocolate theme unchanged; no page-transition library, nothing installed.
+     If any CDN fails, the page keeps its native IntersectionObserver reveal. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) { return; }
+  try {
+    /* Lenis smooth scroll, wired to ScrollTrigger, anchors preserved. */
+    var lenis = null;
+    if (typeof window.Lenis !== "undefined" && typeof window.gsap !== "undefined") {
+      lenis = new window.Lenis({ duration: 1.1, smoothWheel: true });
+      if (window.ScrollTrigger) {
+        window.gsap.registerPlugin(window.ScrollTrigger);
+        lenis.on("scroll", window.ScrollTrigger.update);
+        window.gsap.ticker.add(function(time){ lenis.raf(time * 1000); });
+        window.gsap.ticker.lagSmoothing(0);
+      }
+    }
+    /* Anchor links: Lenis scrolls, then focus moves to the target, so
+       keyboard navigation still works. Without Lenis, native anchors run. */
+    document.querySelectorAll('a[href^="#"]').forEach(function(link){
+      link.addEventListener("click", function(e){
+        var id = link.getAttribute("href");
+        if (id.length < 2 || !lenis) { return; }
+        var target = document.querySelector(id);
+        if (!target) { return; }
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -90, duration: 1.1, onComplete: function(){
+          target.setAttribute("tabindex", "-1");
+          target.focus({ preventScroll: true });
+        }});
+      });
+    });
+    /* GSAP ScrollTrigger reveal: augments, does not replace, the native
+       .reveal sections. Initial state is set only by gsap, so if GSAP
+       fails to load these inner cards/figures simply stay visible. */
+    if (typeof window.gsap !== "undefined" && window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      window.gsap.utils.toArray(".card, .gallery figure, .chapter, blockquote").forEach(function(el){
+        window.gsap.from(el, {
+          opacity: 0, y: 24, duration: 0.7, ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 88%", once: true }
+        });
+      });
+      window.gsap.to(".hero-img img", {
+        yPercent: 6, ease: "none",
+        scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+      });
+      window.addEventListener("load", function(){ window.ScrollTrigger.refresh(); });
+    }
+  } catch (err) { /* Graceful degradation: native reveal and anchors remain. */ }
+})();
+</script><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js"}}</script>
+<script type="module">
+/* Sanjai pack, one small piece: Three.js 0.187.0 + Postprocessing 6.39.6 ambient flour-dust in the hero only.
+   No CurtainsJS on this page. If any import fails, this block exits and the hero img/text work normally. */
+(function(){
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var hero = document.querySelector(".hero");
+  var canvas = document.getElementById("flour-dust");
+  if (!hero || !canvas) return;
+  var visible = false, raf = 0, composer = null, scene = null, camera = null, points = null, renderer = null, clock = null;
+  function stop(){ if (raf) cancelAnimationFrame(raf); raf = 0; }
+  function tick(){
+    raf = 0;
+    if (!visible || !composer) return;
+    var t = clock.getElapsedTime();
+    var pos = points.geometry.attributes.position;
+    for (var i = 0; i < pos.count; i++) {
+      var y = pos.getY(i) + 0.0035;
+      if (y > 4.5) y = -4.5;
+      pos.setY(i, y);
+      pos.setX(i, pos.getX(i) + Math.sin(t * 0.4 + i) * 0.0008);
+    }
+    pos.needsUpdate = true;
+    points.rotation.y = t * 0.02;
+    composer.render(0.016);
+    raf = requestAnimationFrame(tick);
+  }
+  function start(){ if (visible && !raf && composer) raf = requestAnimationFrame(tick); }
+  function resize(){
+    if (!renderer || !composer || !camera) return;
+    var w = hero.clientWidth, h = hero.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    composer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  new IntersectionObserver(function(entries){
+    visible = entries[0] && entries[0].isIntersecting;
+    if (visible) start(); else stop();
+  }, { threshold: 0 }).observe(hero);
+  window.addEventListener("resize", resize, { passive: true });
+  (async function(){
+    try {
+      var THREE = await import("three");
+      var PP = await import("https://cdn.jsdelivr.net/npm/postprocessing@6.39.6/build/index.js");
+      if (!THREE || !PP || !PP.EffectComposer || !PP.RenderPass || !PP.EffectPass || !PP.BloomEffect) return;
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, stencil: false, depth: false, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+      renderer.setClearColor(0x000000, 0);
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
+      camera.position.z = 8;
+      var count = (window.innerWidth < 700) ? 90 : 150;
+      var positions = new Float32Array(count * 3);
+      var colours = new Float32Array(count * 3);
+      var palette = [[0.96, 0.77, 0.33], [0.99, 0.94, 0.84], [0.91, 0.78, 0.40], [0.79, 0.54, 0.11]];
+      var col = new THREE.Color();
+      for (var i = 0; i < count; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 16;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 9;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 4;
+        var c = palette[i % palette.length];
+        col.setRGB(c[0], c[1], c[2]);
+        colours[i * 3] = col.r; colours[i * 3 + 1] = col.g; colours[i * 3 + 2] = col.b;
+      }
+      var geo = new THREE.BufferGeometry();
+      geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      geo.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+      points = new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.12, vertexColors: true, transparent: true, opacity: 0.85, depthWrite: false, sizeAttenuation: true }));
+      scene.add(points);
+      composer = new PP.EffectComposer(renderer);
+      composer.addPass(new PP.RenderPass(scene, camera));
+      composer.addPass(new PP.EffectPass(camera, new PP.BloomEffect({ intensity: 0.35, luminanceThreshold: 0.55, luminanceSmoothing: 0.2, mipmapBlur: true })));
+      clock = new THREE.Clock();
+      resize();
+      start();
+    } catch (e) {
+      stop();
+    }
+  })();
+})();
+</script>
+<script>(function(){try{setTimeout(function(){document.querySelectorAll(".reveal:not(.on)").forEach(function(el){el.classList.add("on");});},2000);}catch(e){}})();</script>
+</body></html>

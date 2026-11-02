@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!-- Demo portfolio site -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KANAKA — Fine Jewellery, Mangaluru | Bridal, Temple & Diamond</title>
+<meta name="description" content="KANAKA is a fictional demo fine jewellery portfolio: bridal, temple, diamond, gold, polki and everyday collections in Mangaluru, India.">
+<style>
+:root{--maroon:#5a1220;--maroon2:#3d0c15;--gold:#c9a227;--gold2:#e8c766;--ivory:#faf6ee;--cream:#f3ead8;--ink:#231a17;--mut:#6b5d55;--line:#e7dcc4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+h1,h2,h3,.serif{font-family:Georgia,"Playfair Display","Times New Roman",serif;line-height:1.08;letter-spacing:-.02em}
+a{color:inherit}img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:linear-gradient(135deg,#5a1220,#c9a227);opacity:1;transition:transform .8s ease}img.img-failed{background:linear-gradient(135deg,#5a1220,#c9a227,#3d0c15)!important}
+.top{position:sticky;top:0;z-index:30;background:rgba(90,18,32,.96);color:#fff;backdrop-filter:blur(8px)}
+.topin{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-family:Georgia,serif;font-size:26px;letter-spacing:.18em;font-weight:700}.brand span{color:var(--gold2);font-size:13px;letter-spacing:.28em;display:block}
+nav{display:flex;gap:16px;flex-wrap:wrap;font-size:14px}nav a{text-decoration:none;opacity:.92}nav a:hover{color:var(--gold2)}
+.btn{display:inline-block;background:var(--gold);color:#1c1208;text-decoration:none;padding:13px 22px;border-radius:999px;font-weight:800;border:0;cursor:pointer}.btn:hover{background:var(--gold2)}.btn.dark{background:var(--maroon);color:#fff}.btn.outline{background:transparent;color:#fff;border:1px solid var(--gold2)}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:640px;background:var(--maroon);color:#fff;overflow:hidden}
+.hero-txt{padding:58px 44px}.eyebrow{color:var(--gold2);letter-spacing:.22em;text-transform:uppercase;font-size:12px;font-weight:800}
+.hero h1{font-size:clamp(44px,6vw,78px);margin:14px 0}.hero h1 em{color:var(--gold2);font-style:normal}
+.hero p{color:#f0ddc2;font-size:18px;max-width:560px}.hero-img{min-height:420px;background:#3d0c15;overflow:hidden}.hero-img img{height:100%;min-height:560px;aspect-ratio:4/5;will-change:transform}
+.rate{background:var(--gold);color:#1c1208;padding:12px 20px;text-align:center;font-weight:700;font-size:14px}
+section{padding:72px 0}h2{font-size:clamp(32px,4.5vw,52px);margin:10px 0 12px}h3{font-size:22px;margin:8px 0}.lead{color:var(--mut);font-size:18px;max-width:820px}
+.grid{display:grid;gap:20px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 32px rgba(90,18,32,.07);transition:transform .35s,box-shadow .35s}.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(90,18,32,.14)}
+.card img{height:260px;background:#3d0c15}.pad{padding:22px}.price{font-family:Georgia,serif;font-size:24px;color:var(--maroon);font-weight:700}.tag{display:inline-block;background:var(--cream);color:var(--maroon);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.muted{color:var(--mut)} .gold{color:var(--gold)} .dark{background:var(--maroon);color:#fff}.dark .lead{color:#e8d7c0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.split img{height:520px;border-radius:24px;background:#3d0c15}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.gallery img{height:220px;border-radius:14px;background:#3d0c15;transition:transform .4s}.gallery img:hover{transform:scale(1.03)}
+.step{border-top:3px solid var(--gold);padding-top:16px}.step b{font-size:36px;color:var(--gold);font-family:Georgia,serif}
+.testi{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}.stars{color:var(--gold);letter-spacing:3px}
+form{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}label{display:block;font-weight:700;margin:14px 0 6px}input,select,textarea{width:100%;padding:13px;border:1px solid #d8cbb2;border-radius:10px;font:inherit;background:#fffdf7}input:focus,select:focus,textarea:focus{outline:3px solid rgba(201,162,39,.35);border-color:var(--gold)}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0}summary{font-weight:800;cursor:pointer}
+footer{background:var(--maroon2);color:#e9dcc6;padding:44px 0 30px;margin-top:20px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.reveal.on{opacity:1;transform:none}
+.btn:active{transform:scale(.97)}a:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.chapter{border-top:1px solid var(--line);padding:34px 0}.chapter:first-of-type{border-top:0}.chapter-no{font-family:Georgia,serif;font-size:52px;color:var(--gold);line-height:1}.pull{font-family:Georgia,serif;font-size:clamp(26px,3.5vw,38px);line-height:1.25;color:var(--maroon);margin:34px 0;padding-left:22px;border-left:4px solid var(--gold)}
+.atelier{background:var(--maroon);color:#fff;border-radius:24px;padding:34px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+@media(max-width:900px){.hero,.split,.g3,.g2{grid-template-columns:1fr}.g4,.gallery{grid-template-columns:repeat(2,1fr)}.hero-txt{padding:38px 22px}.split img{height:360px}.hero-img{min-height:340px}}
+@media(max-width:520px){.g4,.gallery{grid-template-columns:1fr}.card img{height:230px}nav{font-size:13px}}
+
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,#c9a227,#e8c766,#c9a227);z-index:100;box-shadow:0 0 12px rgba(201,162,39,.8)}
+.top.scrolled{box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.card img,.gallery img{transition:transform .8s ease}
+.card img:hover,.gallery img:hover{transform:scale(1.06)}
+section{transition:background-color .6s ease}
+.atelier-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.atelier-gallery figure{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#5a1220,#c9a227)}
+.atelier-gallery img{height:100%;aspect-ratio:4/3}
+.atelier-gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;font-size:13px;font-weight:700}
+.atelier-gallery figure{position:relative}
+@media(max-width:900px){.atelier-gallery{grid-template-columns:repeat(2,1fr)}.hero-img img{min-height:340px}}
+@media(max-width:520px){.atelier-gallery{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#progress{display:none}.card img:hover,.gallery img:hover{transform:none}}
+#curtains-canvas{position:fixed;top:0;left:0;right:0;height:100vh;z-index:5;pointer-events:none;opacity:0;transition:opacity .5s ease}
+body.curtains-ready #curtains-canvas{opacity:1}
+body.curtains-ready .hero-img img{opacity:0 !important}
+</style></head><body><div id="curtains-canvas" aria-hidden="true"></div><div id="progress" aria-hidden="true"></div>
+<header class="top"><div class="topin"><div class="brand">KANAKA<span>FINE JEWELLERY • MANGALURU</span></div>
+<nav><a href="#collections">Collections</a><a href="#pieces">Signature Pieces</a><a href="#craft">Craftsmanship</a><a href="#visit">Visit Us</a><a href="#book">Book a Visit</a></nav><a class="btn" href="#book">Book Appointment</a></div></header>
+
+<main>
+<section class="hero" style="padding:0">
+<div class="hero-txt reveal on"><p class="eyebrow">Est. 1987 • Mangaluru — Udupi, Karnataka</p>
+<h1>Gold that carries <em>your story,</em> beautifully.</h1>
+<p><strong>Our promise, in plain words:</strong> what you are told is what you are sold — the exact weight, the exact purity, the exact price on the bill — and a piece made to be worn, not kept locked away.</p>
+<p>From a bride's first temple necklace to a daughter's first diamond — KANAKA crafts heirlooms in 22k gold, diamonds and polki, made to be worn every day and treasured for generations.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px"><a class="btn" href="#collections">Explore Collections →</a><a class="btn outline" href="#pieces">Signature Pieces</a></div>
+<p style="margin-top:28px;font-size:15px">★ 4.9 rated by 1,800+ families &nbsp;•&nbsp; BIS Hallmarked &nbsp;•&nbsp; Lifetime Exchange &nbsp;•&nbsp; Free Home Trial in Mangaluru</p></div>
+<div class="hero-img" id="hero-plane"><img crossorigin="" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2400&q=85" alt="Elegant gold and diamond ring on a dark background" fetchpriority="high" referrerpolicy="no-referrer" decoding="async"></div>
+</section>
+<div class="rate">Today's indicative gold note: 22k gold jewellery is priced at the day's live rate + making charges. Ask in store for today's exact rate before you buy — prices below are guide prices for the featured designs.</div>
+
+<section id="about" class="wrap reveal"><p class="eyebrow">Our Heritage</p><h2>Three generations. One promise: honest gold.</h2><p class="lead">KANAKA began in 1987 as a small family workshop near Mangaluru's Car Street, making temple jewellery for weddings in Dakshina Kannada and Udupi. Today, the same family still checks every piece by hand — weight, finish, stone setting and clasp — before it reaches the showcase.</p>
+<div class="grid g3" style="margin-top:28px">
+<div class="card pad"><h3>💎 BIS Hallmarked</h3><p class="muted">Every gold piece is BIS hallmarked, with a clear bill showing weight, purity, stone weight and making charges. No hidden charges.</p></div>
+<div class="card pad"><h3>🔄 Lifetime Exchange</h3><p class="muted">Exchange your old KANAKA gold at 100% of the day's gold value, with transparent deductions explained before you decide.</p></div>
+<div class="card pad"><h3>✨ Made for Indian Lives</h3><p class="muted">Light enough for daily wear, strong enough for weddings, festivals, temple visits and family functions — from Mangaluru to Mumbai.</p></div>
+</div></section>
+
+<section id="story" class="wrap reveal"><p class="eyebrow">The Kanaka Story</p><h2>Not bought in a hurry. Worn for a lifetime.</h2><p class="lead">A piece of jewellery is rarely only metal and stone. It is a wedding morning, a mother's blessing, a first salary, a sixtieth birthday. This is how we make something worthy of that moment.</p>
+<article class="chapter"><p class="chapter-no">I</p><h3>Heritage — Car Street, 1987</h3><p>Kanaka began as a small workshop near Car Street in Mangaluru, where temple jewellery was made for weddings across Dakshina Kannada and Udupi. The first pieces were not made for a showcase. They were made for a bride who would wear them from morning rituals to a late-night reception — so they had to sit comfortably, close securely, and still catch light in a crowded hall.</p><p>That discipline remains: every design is first judged on the wrist, the neck and the ear, not only on paper.</p></article>
+<blockquote class="pull">“Gold should feel like it belongs to you the moment it touches your skin — not like something you are afraid to move in.”</blockquote>
+<article class="chapter"><p class="chapter-no">II</p><h3>The Goldsmith's Hand</h3><p>In the atelier, a temple motif is not stamped and forgotten. The Lakshmi face is shaped, the peacock's feathers are chased line by line, and the edges are polished until they feel smooth against the skin, never sharp. A necklace is weighed in the hand before it is weighed on the scale — a good piece has presence without heaviness, and a clasp that closes with a quiet, certain click.</p><p>Only then is it checked twice, BIS hallmarked, and entered on the bill with its weight, purity, stone weight and making charges shown separately. If a stone is set, you are shown the setting before the polish, not after.</p></article>
+<article class="chapter"><p class="chapter-no">III</p><h3>The Moment It Is Worn</h3><p>The true test is not in the store. It is at home, in daylight, when a daughter fastens her mother's temple necklace, when a bride looks in the mirror before leaving for the mantap, when a simple gold pendant is worn with an office shirt and still looks right at dinner. A Kanaka piece is finished for that moment: secure enough to forget you are wearing it, luminous enough that others remember it.</p></article>
+<aside class="atelier"><p class="eyebrow" style="color:var(--gold2)">From the Atelier</p><p style="font-size:19px">We do not chase the loudest design of the season. We make the piece you will reach for again in ten years — and that your daughter will ask to borrow in twenty. If a design will not last that long, we do not make it.</p><p>— The Kanaka family, Mangaluru atelier</p></aside>
+</section>
+
+<section id="collections" class="wrap reveal"><p class="eyebrow">Collections</p><h2>Six collections, for every occasion.</h2><p class="lead">Start with the occasion, and our team will help you choose the weight, design and budget that suits you.</p>
+<div class="grid g3" style="margin-top:28px">
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80" alt="Bridal gold necklace and earrings" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Most Loved</span><h3>Bridal</h3><p class="muted">Complete wedding sets — necklace, choker, bangles, earrings, waist belt and hair ornaments, matched to your saree and blouse.</p><p><b>From ₹85,000</b> • Sets from 24g</p></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1600&q=80" alt="Traditional temple gold jewellery" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Heritage</span><h3>Temple</h3><p class="muted">Lakshmi, peacock and floral motifs in antique-finish gold, inspired by South Indian temple art.</p><p><b>From ₹48,500</b> • Antique & matte finish</p></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1600&q=80" alt="Diamond pendant and ring set" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Certified</span><h3>Diamond</h3><p class="muted">Solitaire and diamond-studded rings, pendants and earrings with IGI/GIA-style certification on request.</p><p><b>From ₹32,000</b> • 18k gold settings</p></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?auto=format&fit=crop&w=1600&q=80" alt="Classic gold bangles" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">22k Gold</span><h3>Gold</h3><p class="muted">Chains, bangles, bracelets and rings in 22k gold — classic, modern and fusion designs for men and women.</p><p><b>From ₹28,000</b> • Daily & festive wear</p></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1600&q=80" alt="Polki diamond ring" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Royal</span><h3>Polki</h3><p class="muted">Uncut diamonds set in gold, for brides and festive evenings who love a royal, Mughal-inspired look.</p><p><b>From ₹1,25,000</b> • Bridal & occasion sets</p></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1600&q=80" alt="Everyday gold stud earrings" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80'" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Light & Daily</span><h3>Everyday</h3><p class="muted">Light studs, small pendants, thin chains and office-friendly rings — comfortable from morning to night.</p><p><b>From ₹12,500</b> • Under 4g options</p></div></article>
+</div>
+<div class="grid g2" style="margin-top:22px">
+<div class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1600&q=80" alt="Gold earrings in the atelier" style="height:320px" referrerpolicy="no-referrer" decoding="async"><div class="pad"><h3>Atelier detail — earrings</h3><p class="muted">Hand-finished gold, checked for smooth edges before hallmarking.</p></div></div>
+<div class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1600&q=80" alt="Gold jewellery detail in warm light" style="height:320px" referrerpolicy="no-referrer" decoding="async"><div class="pad"><h3>Atelier detail — warm gold</h3><p class="muted">Antique and polished finishes, side by side, so you can compare in daylight.</p></div></div>
+</div>
+</section>
+
+<section id="pieces" class="wrap reveal"><p class="eyebrow">Signature Pieces</p><h2>Loved, tried and asked for by name.</h2><div class="grid g3" style="margin-top:26px">
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80" alt="Lakshmi temple necklace" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Temple</span><h3>Lakshmi Temple Necklace</h3><p class="muted">22k gold, antique finish, 32g. Ruby accents, screw-back matching earrings included.</p><p class="price">₹2,45,000</p><a class="btn dark" href="#book">Enquire →</a></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1600&q=80" alt="Solitaire diamond ring" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Diamond</span><h3>Meera Solitaire Ring</h3><p class="muted">0.50 ct solitaire in 18k gold, VVS clarity, certified. Sizes 10–18, free resizing in 7 days.</p><p class="price">₹1,25,000</p><a class="btn dark" href="#book">Enquire →</a></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1600&q=80" alt="Gold bridal bangles" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Bridal</span><h3>Kanaka Bridal Bangle Set</h3><p class="muted">Set of 6, 22k gold, 28g. Traditional Kasu-inspired engraving, secure hinge clasps.</p><p class="price">₹1,98,500</p><a class="btn dark" href="#book">Enquire →</a></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1600&q=80" alt="Gold pendant for everyday wear" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Everyday</span><h3>Sunrise Pendant & Chain</h3><p class="muted">22k gold, 6.5g, 18-inch chain. Light, tarnish-resistant, perfect for daily wear.</p><p class="price">₹48,500</p><a class="btn dark" href="#book">Enquire →</a></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80" alt="Gold and diamond ring" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Diamond</span><h3>Ivory Diamond Band</h3><p class="muted">18k gold band with 12 round diamonds, 0.32 ct total. Anniversary and engagement favourite.</p><p class="price">₹86,000</p><a class="btn dark" href="#book">Enquire →</a></div></article>
+<article class="card"><img loading="lazy" src="https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?auto=format&fit=crop&w=1600&q=80" alt="Classic gold bracelet" referrerpolicy="no-referrer" decoding="async"><div class="pad"><span class="tag">Gold</span><h3>Heritage Gold Bracelet</h3><p class="muted">22k gold, 14g, hand-finished links. Strong clasp, comfortable for all-day wear.</p><p class="price">₹1,08,000</p><a class="btn dark" href="#book">Enquire →</a></div></article>
+</div><p class="muted" style="margin-top:16px">Prices are guide prices for the featured designs and change with the daily gold rate. Final price is confirmed in store with weight and making charges on your bill.</p></section>
+
+<section class="dark"><div class="wrap reveal"><p class="eyebrow">Craftsmanship</p><h2>From sketch to showcase, in five careful steps.</h2><div class="grid g4" style="margin-top:28px">
+<div class="step"><b>01</b><h3>Listen & Sketch</h3><p>We ask about the occasion, saree, budget and comfort — then sketch 2–3 designs, not one.</p></div>
+<div class="step"><b>02</b><h3>Choose Gold & Stones</h3><p>22k or 18k gold, diamonds, rubies or polki — weighed and shown to you before work starts.</p></div>
+<div class="step"><b>03</b><h3>Handcraft</h3><p>Our karigars shape, set and polish each piece by hand. Custom orders take 10–21 days.</p></div>
+<div class="step"><b>04</b><h3>Check & Hallmark</h3><p>Weight, finish, stones and clasps are checked twice, then BIS hallmarked.</p></div>
+</div><div class="step" style="margin-top:20px"><b>05</b><h3>Try, Fit & Take Home</h3><p>Try it in store, adjust the fit, and take it home in a KANAKA gift box with your bill and certificate.</p></div></div></section>
+
+<section class="wrap reveal"><p class="eyebrow">Gallery</p><h2>A closer look.</h2><div class="gallery" style="margin-top:22px">
+<img loading="lazy" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80" alt="Diamond ring close up" referrerpolicy="no-referrer" decoding="async">
+<img loading="lazy" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80" alt="Gold necklace detail" referrerpolicy="no-referrer" decoding="async">
+<img loading="lazy" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1600&q=80" alt="Temple jewellery detail" referrerpolicy="no-referrer" decoding="async">
+<img loading="lazy" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1600&q=80" alt="Ring on hand" referrerpolicy="no-referrer" decoding="async">
+<img loading="lazy" src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1600&q=80" alt="Diamond pendant" referrerpolicy="no-referrer" decoding="async">
+<img loading="lazy" src="https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?auto=format&fit=crop&w=1600&q=80" alt="Gold bangles stack" referrerpolicy="no-referrer" decoding="async">
+<img loading="lazy" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1600&q=80" alt="Gold jewellery collection" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80'" referrerpolicy="no-referrer" decoding="async">
+<img loading="lazy" src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=1600&q=80" alt="Jewellery showcase" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80'" referrerpolicy="no-referrer" decoding="async">
+</div></section>
+
+
+<section class="wrap reveal"><p class="eyebrow">More From The Atelier</p><h2>More from the atelier.</h2><p class="lead">Twelve more close-ups from the workshop and showcase — gold, diamonds, temple work and everyday pieces, in daylight and in showcase light.</p><div class="atelier-gallery">
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1600&q=80" alt="Gold ring close-up" referrerpolicy="no-referrer" decoding="async"><figcaption>Gold ring, close-up</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1600&q=80" alt="Gold necklace on display" referrerpolicy="no-referrer" decoding="async"><figcaption>Gold necklace</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=1600&q=80" alt="Engagement ring in a box" referrerpolicy="no-referrer" decoding="async"><figcaption>Engagement ring</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1600&q=80" alt="Diamond ring sparkling" referrerpolicy="no-referrer" decoding="async"><figcaption>Diamond, sparkling</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=1600&q=80" alt="Jewellery piece on dark background" referrerpolicy="no-referrer" decoding="async"><figcaption>Showcase piece</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&w=1600&q=80" alt="Gold jewellery collection" referrerpolicy="no-referrer" decoding="async"><figcaption>Collection view</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?auto=format&fit=crop&w=1600&q=80" alt="Classic gold bangles" referrerpolicy="no-referrer" decoding="async"><figcaption>Gold bangles</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1600&q=80" alt="Diamond pendant" referrerpolicy="no-referrer" decoding="async"><figcaption>Diamond pendant</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1600&q=80" alt="Temple jewellery detail" referrerpolicy="no-referrer" decoding="async"><figcaption>Temple detail</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80" alt="Bridal gold necklace" referrerpolicy="no-referrer" decoding="async"><figcaption>Bridal gold</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1600&q=80" alt="Diamond ring on hand" referrerpolicy="no-referrer" decoding="async"><figcaption>Diamond ring</figcaption></figure>
+<figure><img loading="lazy" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80" alt="Gold and diamond ring hero piece" referrerpolicy="no-referrer" decoding="async"><figcaption>Hero piece</figcaption></figure>
+</div></section>
+
+<section class="wrap reveal"><p class="eyebrow">Testimonials</p><h2>Families who came back — and brought their families.</h2>
+<div class="grid g3" style="margin-top:26px">
+<blockquote class="testi"><p class="stars">★★★★★</p><p>"My bridal set from KANAKA was exactly what I sketched with them. Light to wear for 8 hours, and my mother-in-law still asks where it came from."</p><footer><b>Priya Shetty</b> — Bride, Mangaluru</footer></blockquote>
+<blockquote class="testi"><p class="stars">★★★★★</p><p>"They explained the bill line by line — gold weight, making charges, GST. No pressure, no confusion. That honesty is why I returned for my daughter's earrings."</p><footer><b>Ramesh Nayak</b> — Udupi</footer></blockquote>
+<blockquote class="testi"><p class="stars">★★★★★</p><p>"I ordered a temple necklace for my mother's 60th birthday. It arrived polished, hallmarked, and in a beautiful box. She wears it to every temple visit."</p><footer><b>Ananya Rao</b> — Bengaluru, ordered for Mangaluru pickup</footer></blockquote>
+</div></section>
+
+<section id="visit" class="wrap reveal"><div class="split">
+<div><p class="eyebrow">Visit Us</p><h2>Come, try, and take your time.</h2><p><b>Demo store address:</b><br>Kanaka Fine Jewellery (Demo)<br>1st Floor, Demo Plaza, Lighthouse Hill Road,<br>Mangaluru, Karnataka 575001, India</p><p><b>Demo phone:</b> <a href="tel:+919876543210">+91 98765 43210</a><br><b>Demo email:</b> hello@kanaka-demo.example</p><p><b>Hours:</b><br>Monday – Saturday: 10:00 AM – 8:30 PM<br>Sunday: 10:30 AM – 7:00 PM<br>Festival days: open till 9:00 PM</p><p class="muted">Parking available nearby. Bridal appointments are private — one family at a time in our bridal room.</p></div>
+<div><img loading="lazy" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1600&q=80" alt="Jewellery store showcase with gold pieces" referrerpolicy="no-referrer" decoding="async"></div>
+</div></section>
+
+<section class="wrap reveal"><p class="eyebrow">The Kanaka Promise</p><h2>Before you pay, you will know everything.</h2><blockquote class="pull">“A family should never have to guess what they bought. The bill should answer every question — before the box is closed.”</blockquote><div class="grid g3" style="margin-top:24px"><div class="card pad"><h3>Exact, on the bill</h3><p class="muted">Gold weight, purity, stone weight, making charges and GST — each shown separately, and explained line by line if you ask.</p></div><div class="card pad"><h3>Hallmarked, checked twice</h3><p class="muted">BIS hallmark, secure clasps, smooth polish and stone settings checked before a piece reaches the showcase.</p></div><div class="card pad"><h3>Made to be worn</h3><p class="muted">Comfort, fit and finish first — with lifetime exchange and resizing support, so the piece stays with you, not in a locker.</p></div></div><p style="margin-top:22px"><a class="btn dark" href="#book">Book a private viewing →</a></p></section>
+
+<section id="book" class="wrap reveal"><p class="eyebrow">Book an Appointment</p><h2>Reserve a private viewing — free, no obligation.</h2>
+<form id="bookForm" novalidate>
+<div class="grid g2">
+<div><label for="name">Your name *</label><input id="name" required placeholder="e.g. Priya Shetty"></div>
+<div><label for="phone">Phone *</label><input id="phone" required inputmode="tel" placeholder="e.g. 98765 43210"></div>
+<div><label for="interest">What are you looking for?</label><select id="interest"><option>Bridal set</option><option>Temple jewellery</option><option>Diamond ring / pendant</option><option>Gold chain / bangles</option><option>Polki set</option><option>Everyday wear</option><option>Custom design</option></select></div>
+<div><label for="date">Preferred date</label><input id="date" type="date"></div>
+</div>
+<label for="msg">Anything we should prepare? (budget, occasion, saree colour)</label><textarea id="msg" rows="3" placeholder="e.g. Wedding in December, budget around ₹1,50,000, red Kanjeevaram saree"></textarea>
+<button class="btn dark" type="submit" style="margin-top:18px">Request Appointment →</button>
+<p id="confirm" role="status" style="display:none;margin-top:16px;background:#eef7e8;border:1px solid #b7d9a8;padding:14px;border-radius:12px;font-weight:700">Thank you! Your appointment request has been received (demo form — no booking was actually sent). Our demo team will call you to confirm your slot.</p>
+<p class="muted" style="font-size:14px">Front-end demo form only. No data is sent or stored by this page.</p>
+</form></section>
+
+<section class="wrap reveal"><p class="eyebrow">FAQ</p><h2>Questions customers ask us most.</h2>
+<details><summary>Is your gold BIS hallmarked?</summary><p>Yes. Every gold piece is BIS hallmarked, and your bill shows gold weight, purity, stone weight, making charges and GST separately.</p></details>
+<details><summary>Can I exchange old gold?</summary><p>Yes, at 100% of the day's gold value for KANAKA pieces, after a purity check. Old gold from other jewellers is also accepted, with the purity test shown to you.</p></details>
+<details><summary>How long does a custom design take?</summary><p>Most custom pieces take 10–21 days, depending on design and stone availability. Bridal sets should be ordered at least 4 weeks before the wedding.</p></details>
+<details><summary>Do you deliver outside Mangaluru?</summary><p>For this demo, pickup is in Mangaluru. In a real store, insured delivery and home trials can be arranged — confirm in store before ordering.</p></details>
+<details><summary>What if a ring size is wrong?</summary><p>Free resizing within 7 days for most rings, subject to design. Diamond and polki pieces are resized only after a design check, to protect the setting.</p></details>
+</section>
+</main>
+
+<footer><div class="wrap"><div class="grid g3">
+<div><div class="brand">KANAKA</div><p>Fictional demo portfolio site. Not a real business, and the phone, address and prices are demo placeholders only.</p></div>
+<div><h3 style="color:#fff">Collections</h3><p>Bridal • Temple • Diamond<br>Gold • Polki • Everyday</p></div>
+<div><h3 style="color:#fff">Demo Contact</h3><p>Lighthouse Hill Road, Mangaluru<br>+91 98765 43210 • hello@kanaka-demo.example<br>Mon–Sat 10:00 AM – 8:30 PM</p></div>
+</div><p style="border-top:1px solid rgba(255,255,255,.2);padding-top:16px;margin-top:24px">© 2026 KANAKA (Demo) • BIS Hallmarked • Lifetime Exchange • Made with care in Mangaluru, India</p></div></footer>
+<script>
+document.getElementById('bookForm').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('name'),p=document.getElementById('phone');if(!n.value.trim()||!p.value.trim()){alert('Please add your name and phone number.');return;}document.getElementById('confirm').style.display='block';document.getElementById('confirm').scrollIntoView({behavior:'smooth',block:'center'});});
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(s){io.observe(s)});
+</script>
+<script>
+(function(){
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var bar = document.getElementById('progress');
+var top = document.querySelector('.top');
+var heroImg = document.querySelector('.hero-img img');
+function onScroll(){
+  var h = document.documentElement;
+  var max = h.scrollHeight - h.clientHeight;
+  if (bar && max > 0) bar.style.width = (h.scrollTop / max * 100) + '%';
+  if (top) top.classList.toggle('scrolled', h.scrollTop > 10);
+  if (heroImg && !reduced) heroImg.style.transform = 'translateY(' + (h.scrollTop * 0.08) + 'px) scale(1.05)';
+}
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+var fallback = 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80';
+var fallbackAlt = 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80';
+document.querySelectorAll('img').forEach(function(img){
+  img.addEventListener('error', function(){
+    if (img.dataset.fallback) return; /* swap once only */
+    img.dataset.fallback = '1'; img.classList.add('img-failed');
+    /* Never swap to the same URL: hero imgs fall back to a different image. */
+    img.src = (img.currentSrc || img.src).indexOf('photo-1515562141207-7a88fb7ce338') !== -1 ? fallbackAlt : fallback;
+  });
+});
+setTimeout(function(){ try{ document.querySelectorAll('.reveal:not(.on)').forEach(function(el){ el.classList.add('on'); }); }catch(e){} }, 2000);
+document.querySelectorAll('.reveal').forEach(function(el, i){ el.style.transitionDelay = ((i % 3) * 0.08) + 's'; });
+})();
+</script>
+<!-- Sanjai creative-web, Rule 0: ONE small motion layer only.
+     GSAP 3.15 + ScrollTrigger + Lenis 1.3.27 via CDN (no install, no Barba,
+     no reference-site assets/text/dark palette). This augments, never
+     replaces, the existing native IntersectionObserver reveal: if any
+     CDN fails, the page still reveals, scrolls and anchors normally. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return; /* fade only: native CSS already handles this */
+  try {
+    /* Lenis smooth scroll, wired to ScrollTrigger, keyboard-safe:
+       Lenis only smooths wheel/touch; Tab/arrow/page keys and focus
+       scrolling stay native, and anchor clicks are handled below. */
+    var lenis = null;
+    if (typeof window.Lenis !== 'undefined') {
+      lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      if (typeof window.gsap !== 'undefined' && window.ScrollTrigger) {
+        lenis.on('scroll', window.ScrollTrigger.update);
+        window.gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+        window.gsap.ticker.lagSmoothing(0);
+      } else {
+        (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })(0);
+      }
+      /* Anchor links: smooth via Lenis, then move focus for keyboard users. */
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var id = a.getAttribute('href');
+          if (id.length < 2) return;
+          var target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          lenis.scrollTo(target, {
+            offset: -72,
+            duration: 1.2,
+            onComplete: function () {
+              if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+              target.focus({ preventScroll: true });
+            }
+          });
+          history.replaceState(null, '', id);
+        });
+      });
+    }
+    /* GSAP ScrollTrigger reveals: augment the native .reveal sections by
+       animating cards/gallery/testimonials/steps inside them, once only,
+       transform + opacity only (compositor-friendly, 60fps-friendly). */
+    if (typeof window.gsap !== 'undefined' && window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      window.gsap.utils.toArray('.card, .gallery img, .atelier-gallery figure, .testi, .step').forEach(function (el) {
+        window.gsap.fromTo(el, { y: 24, opacity: 0 }, {
+          y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+        });
+      });
+      window.addEventListener('load', function () { window.ScrollTrigger.refresh(); });
+    }
+  } catch (err) {
+    /* Graceful degradation: native reveal, scroll and anchors still work. */
+  }
+})();
+</script>
+<!-- Sanjai creative-web: CurtainsJS 8.1.6 WebGL hero layer, HERO IMAGE ONLY.
+     Pattern from workspace/repos/curtainsjs/examples/multiple-planes-scroll-effect/
+     (lerped scrollEffect, delta clamped to +-60, vertex bend + slight scale).
+     Safety: the hero image stays visible by default; it is hidden ONLY when
+     the plane fires onReady (body.curtains-ready). CDN failure, no WebGL,
+     curtains.onError, reduced motion, or a narrow screen all leave the
+     plain hero img untouched. Canvas is fixed, pointer-events:none, and
+     z-index 5, i.e. below the sticky header (z-index 30). -->
+<script src="https://cdn.jsdelivr.net/npm/curtainsjs@8.1.6/dist/curtains.umd.min.js"></script>
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.innerWidth < 768) return; /* small screens: plain img, no WebGL cost */
+  if (typeof window.Curtains === 'undefined' || typeof window.Plane === 'undefined') return; /* CDN failed */
+  function init() {
+    var heroImg = document.querySelector('.hero-img img');
+    if (!heroImg || !heroImg.complete || heroImg.naturalWidth === 0) return; /* img not loaded: keep it visible */
+    var curtains, plane, scrollEffect = 0;
+    try {
+      curtains = new window.Curtains({
+        container: 'curtains-canvas',
+        pixelRatio: Math.min(1.5, window.devicePixelRatio)
+      });
+    } catch (err) { return; }
+    curtains.onRender(function () {
+      scrollEffect = curtains.lerp(scrollEffect, 0, 0.075);
+    }).onScroll(function () {
+      var delta = curtains.getScrollDeltas();
+      delta.y = -delta.y;
+      if (delta.y > 60) delta.y = 60;
+      else if (delta.y < -60) delta.y = -60;
+      if (Math.abs(delta.y) > Math.abs(scrollEffect)) {
+        scrollEffect = curtains.lerp(scrollEffect, delta.y, 0.5);
+      }
+    }).onError(function () {
+      /* Never hide the img on error: canvas stays opacity 0, img stays visible. */
+      document.body.classList.remove('curtains-ready');
+      document.body.classList.add('no-curtains');
+    }).onContextLost(function () {
+      curtains.restoreContext();
+    });
+    var vs = [
+      'precision mediump float;',
+      'attribute vec3 aVertexPosition;',
+      'attribute vec2 aTextureCoord;',
+      'uniform mat4 uMVMatrix;',
+      'uniform mat4 uPMatrix;',
+      'uniform mat4 planeTextureMatrix;',
+      'varying vec3 vVertexPosition;',
+      'varying vec2 vTextureCoord;',
+      'uniform float uScrollEffect;',
+      'void main() {',
+      '  vec3 vertexPosition = aVertexPosition;',
+      '  vertexPosition.x += sin((vertexPosition.y / 1.5 + 1.0) * 3.141592) * (sin(uScrollEffect / 2000.0));',
+      '  gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);',
+      '  vVertexPosition = vertexPosition;',
+      '  vTextureCoord = (planeTextureMatrix * vec4(aTextureCoord, 0.0, 1.0)).xy;',
+      '}'
+    ].join('\n');
+    var fs = [
+      'precision mediump float;',
+      'varying vec3 vVertexPosition;',
+      'varying vec2 vTextureCoord;',
+      'uniform sampler2D planeTexture;',
+      'void main() { gl_FragColor = texture2D(planeTexture, vTextureCoord); }'
+    ].join('\n');
+    try {
+      plane = new window.Plane(curtains, document.getElementById('hero-plane'), {
+        vertexShader: vs,
+        fragmentShader: fs,
+        widthSegments: 10,
+        heightSegments: 10,
+        uniforms: { scrollEffect: { name: 'uScrollEffect', type: '1f', value: 0 } }
+      });
+    } catch (err) { return; }
+    plane.onReady(function () {
+      /* Only now swap the DOM img for the WebGL plane. */
+      document.body.classList.add('curtains-ready');
+    }).onRender(function () {
+      /* Gentle, capped scale only; no parallax translation, so the plane
+         stays glued to the hero div and never fights the existing hero CSS. */
+      plane.rotation.z = Math.abs(scrollEffect) / 1500;
+      plane.scale.y = 1 + Math.abs(scrollEffect) / 600;
+      if (plane.textures[0]) plane.textures[0].scale.y = 1 + Math.abs(scrollEffect) / 300;
+      plane.uniforms.scrollEffect.value = scrollEffect;
+    });
+  }
+  /* Like the example, init on window load so the hero texture is loaded. */
+  if (document.readyState === 'complete') init();
+  else window.addEventListener('load', init);
+})();
+</script>
+</body></html>

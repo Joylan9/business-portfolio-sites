@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!-- Demo portfolio site — fictional demo brand, not a real business. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LUXE — Salon &amp; Spa, Mangaluru | Hair, Bridal, Skin &amp; Spa</title>
+<meta name="description" content="Demo portfolio site for LUXE Salon & Spa, Mangaluru. Hair, bridal, skin, nails and spa services.">
+<style>
+:root{--char:#17171a;--char2:#232329;--gold:#c6a15b;--gold2:#e8d5a8;--blush:#f7e9e6;--cream:#fbf8f3;--mut:#6b6670;--line:#e8dfd3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--char);line-height:1.6}
+body p,body li,body label,body input,body select,body textarea,body button{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit}header{position:sticky;top:0;z-index:50;background:rgba(23,23,26,.96);color:#fff;backdrop-filter:blur(8px)}
+.nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-size:26px;letter-spacing:.28em;font-weight:700}.brand small{display:block;font-family:system-ui,sans-serif;font-size:10px;letter-spacing:.32em;color:var(--gold2)}
+.nav a{color:#eee;text-decoration:none;font-family:system-ui,sans-serif;font-size:14px;margin:0 8px}.nav a:hover{color:var(--gold2)}
+.cta{background:var(--gold);color:#17171a!important;padding:10px 18px;border-radius:999px;font-weight:700}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+.hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;min-height:560px;background:var(--char);color:#fff;overflow:hidden}
+#luxe-particles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hero-txt{position:relative;z-index:2}
+.hero-txt{padding:56px 44px}.eyebrow{color:var(--gold2);letter-spacing:.24em;font-size:12px;font-weight:700;font-family:system-ui,sans-serif}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.02;margin:14px 0;font-weight:500}h1 em{color:var(--gold2);font-style:italic}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:8px 0 12px;font-weight:500}h3{font-size:21px;margin:0 0 6px}
+.lead{font-size:18px;color:#e8e2d8;max-width:560px}.mut{color:var(--mut)}
+.hero-img{background:#3a3230 url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2400&q=85') center/cover;min-height:320px}
+.btn{display:inline-block;background:var(--gold);color:#17171a;text-decoration:none;padding:14px 24px;border-radius:999px;font-weight:800;font-family:system-ui,sans-serif;border:0;cursor:pointer}.btn.out{background:transparent;color:#fff;border:1px solid #fff}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.pill{border:1px solid rgba(255,255,255,.35);padding:8px 12px;border-radius:999px;font-family:system-ui,sans-serif;font-size:13px}
+section{padding:64px 0}.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(23,23,26,.05)}
+.card img{width:100%;height:220px;object-fit:cover;border-radius:12px;background:#ddd3c8}
+.price{color:#8a6d2b;font-weight:900;font-family:system-ui,sans-serif}.dur{color:var(--mut);font-size:13px;font-family:system-ui,sans-serif}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.tab{border:1px solid var(--line);background:#fff;padding:11px 18px;border-radius:999px;cursor:pointer;font-weight:700}.tab[aria-selected="true"]{background:var(--char);color:#fff}
+.panel{display:none}.panel.active{display:block}
+.svc{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.gal img{width:100%;height:240px;object-fit:cover;border-radius:16px;background:#ddd3c8}
+.bride{background:var(--char);color:#fff;border-radius:22px;padding:28px}.bride .card{background:#232329;color:#fff;border-color:#3a3a42}
+form label{display:block;font-weight:700;margin:12px 0 5px}input,select,textarea{width:100%;padding:12px;border:1px solid #cfc4b4;border-radius:10px;font-size:16px;background:#fff}
+#confirm{display:none;background:#eaf5ec;border:1px solid #b9dfc0;padding:16px;border-radius:12px;margin-top:16px}
+footer{background:var(--char);color:#ddd;padding:36px 0}.reveal{opacity:0;transform:translateY(18px);transition:.7s}.reveal.in{opacity:1;transform:none}
+.story{background:var(--char);color:#f3ede2}.story .eyebrow{color:var(--gold2)}.chapter{border-left:2px solid var(--gold);padding-left:22px;margin:28px 0}.chapter h3{font-size:26px;color:#fff}.chapter p{color:#d8d0c2;max-width:760px}
+.pull{font-size:clamp(24px,3.4vw,36px);line-height:1.25;font-style:italic;color:var(--char);border-left:4px solid var(--gold);padding-left:22px;margin:32px 0}
+.pull.dark{color:#f3ede2}.note{background:#fff;border:1px solid var(--gold);border-radius:18px;padding:26px;margin-top:22px}
+.promise{background:linear-gradient(135deg,#17171a,#3a2f1d);color:#fff;border-radius:22px;padding:34px}
+.btn:active,.tab:active{transform:scale(.97);transition:transform 100ms ease-out}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+@media(max-width:820px){.hero,.g3,.g4,.g2{grid-template-columns:1fr}.hero-txt{padding:32px 22px}}
+
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;z-index:100}
+header.scrolled{box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.gal img,.card img{transition:transform .8s ease;opacity:1}
+.gal img.loaded,.card img.loaded{opacity:1}
+.gal img:hover,.card img:hover{transform:scale(1.06)}
+.gal{overflow:hidden}
+.hero-img{will-change:transform}
+@media(prefers-reduced-motion:reduce){#progress{display:none}.gal img,.card img{transition:none;opacity:1}.gal img:hover,.card img:hover{transform:none}}
+</style></head><body><div id="progress" aria-hidden="true"></div><noscript><style>img{opacity:1!important}</style></noscript>
+<header><div class="nav"><div class="brand">LUXE<small>SALON &amp; SPA • MANGALURU</small></div><nav aria-label="Main navigation"><a href="#story">Our Story</a><a href="#services">Services</a><a href="#stylists">Stylists</a><a href="#bridal">Bridal</a><a href="#gallery">Gallery</a><a href="#more-transformations">Transformations</a><a href="#visit">Visit</a><a class="cta" href="#book">Book Appointment</a></nav></div></header>
+<main>
+<section class="hero" aria-label="Introduction"><canvas id="luxe-particles" aria-hidden="true"></canvas><div class="hero-txt reveal in"><p class="eyebrow">MANGALURU • SINCE 2018 • DEMO PORTFOLIO</p><h1>Quiet luxury,<br><em>beautifully</em> done.</h1><p class="lead">Hair, bridal, skin and spa — in a calm, charcoal-and-gold studio where every appointment starts with a consultation, not a rushed chair.</p><p class="lead" style="font-style:italic;color:#f3ede2">We do not sell a haircut. We give you the version of yourself you walk in hoping to become — calm, certain, unmistakably you.</p><div style="margin-top:24px"><a class="btn" href="#book">Book an Appointment</a> <a class="btn out" href="#services" style="margin-left:10px">Explore Services</a></div><div class="pills"><span class="pill">★ 4.9 rated by 1,240+ guests</span><span class="pill">✂ Certified stylists</span><span class="pill">🌿 Dermat-tested products</span></div><p style="margin-top:20px">📞 Demo: <a href="tel:+919876543214" style="color:#fff">+91 98765 43214</a> &nbsp;•&nbsp; Open today 9:30 AM – 8:30 PM</p></div><div class="hero-img" role="img" aria-label="Elegant salon interior and styling"></div></section>
+
+<section id="story" class="story reveal" aria-label="The LUXE story"><div class="wrap"><p class="eyebrow">THE LUXE STORY</p><h2>Confidence, not just beauty.</h2><p style="color:#d8d0c2;max-width:760px">Beauty fades by evening. Confidence does not. That is why LUXE is built around time, listening and craft — so the change you feel inside the chair is still with you at dinner, at work, and in every photograph that follows.</p>
+<blockquote class="pull dark">“You should leave lighter than you arrived — not only in how you look, but in how you carry yourself.”</blockquote>
+<div class="chapter"><h3>I. The Consultation First</h3><p>Every visit begins with a conversation, not a pair of scissors. We ask about your hair history, your skin, your week, and the occasion ahead. We show you what is possible, what is not, and what it will cost — before we begin. No surprises, no rushed decisions.</p></div>
+<div class="chapter"><h3>II. The Ritual, Unhurried</h3><p>Then the room slows down. Warm towels, unhurried colour, a scalp ritual that is not an add-on but part of the care. One stylist, one guest, one chair. We finish only when the cut, colour or glow looks right in daylight — not only under salon lights.</p></div>
+<div class="chapter"><h3>III. Walking Out Different</h3><p>The mirror is the last step, never the first. We style it the way you will wear it tomorrow, teach you the two-minute version at home, and write down what we used — so the result lasts beyond today.</p><p>For a bride, this journey stretches across weeks: a first consultation, a trial where we test the look with your saree and jewellery, pre-bridal glow and hair care, and finally a calm bridal morning in a private room, with one team and no chaos. She does not walk out different for a day. She walks into her wedding feeling like herself, only more so.</p></div>
+</div></section>
+
+<div class="wrap">
+<section id="services" class="reveal"><p class="eyebrow" style="color:#8a6d2b">SERVICES &amp; PRICES</p><h2>Transparent prices. No surprises at the chair.</h2><p class="mut">All prices include consultation, wash and finish. Final price is confirmed before we begin.</p>
+<div class="tabs" role="tablist" aria-label="Service categories">
+<button class="tab" aria-selected="true" onclick="showTab(event,'women')">Women</button>
+<button class="tab" aria-selected="false" onclick="showTab(event,'men')">Men</button>
+<button class="tab" aria-selected="false" onclick="showTab(event,'skin')">Skin, Spa &amp; Nails</button>
+</div>
+<div id="women" class="panel active"><div class="svc"><div><h3>Signature Haircut &amp; Styling</h3><p class="mut">Consultation, wash, precision cut and blow-dry finish.</p></div><div style="text-align:right"><span class="price">₹699</span><br><span class="dur">45 min</span></div></div>
+<div class="svc"><div><h3>Balayage / Global Colour</h3><p class="mut">Dimensional colour, gloss and bond-care treatment.</p></div><div style="text-align:right"><span class="price">₹5,499</span><br><span class="dur">3 hrs</span></div></div>
+<div class="svc"><div><h3>Keratin Smoothening</h3><p class="mut">Frizz control and mirror shine for up to 4 months.</p></div><div style="text-align:right"><span class="price">₹6,999</span><br><span class="dur">3 hrs</span></div></div>
+<div class="svc"><div><h3>Hair Spa &amp; Scalp Ritual</h3><p class="mut">Deep repair mask, scalp massage and steam.</p></div><div style="text-align:right"><span class="price">₹1,499</span><br><span class="dur">60 min</span></div></div></div>
+<div id="men" class="panel"><div class="svc"><div><h3>Signature Haircut</h3><p class="mut">Precision cut, wash and style finish.</p></div><div style="text-align:right"><span class="price">₹499</span><br><span class="dur">30 min</span></div></div>
+<div class="svc"><div><h3>Beard Sculpt &amp; Hot Towel Shave</h3><p class="mut">Shaping, hot towel and beard oil finish.</p></div><div style="text-align:right"><span class="price">₹299</span><br><span class="dur">20 min</span></div></div>
+<div class="svc"><div><h3>Hair Colour &amp; Grey Coverage</h3><p class="mut">Natural-looking coverage with scalp care.</p></div><div style="text-align:right"><span class="price">₹1,299</span><br><span class="dur">60 min</span></div></div>
+<div class="svc"><div><h3>Head Massage &amp; Hair Spa</h3><p class="mut">Relaxing massage, wash and conditioning.</p></div><div style="text-align:right"><span class="price">₹899</span><br><span class="dur">40 min</span></div></div></div>
+<div id="skin" class="panel"><div class="svc"><div><h3>LUXE Glow Facial</h3><p class="mut">Cleanse, exfoliation, massage and gold glow mask.</p></div><div style="text-align:right"><span class="price">₹1,999</span><br><span class="dur">75 min</span></div></div>
+<div class="svc"><div><h3>Full-Body Aroma Spa</h3><p class="mut">Swedish-style massage with calming essential oils.</p></div><div style="text-align:right"><span class="price">₹2,499</span><br><span class="dur">90 min</span></div></div>
+<div class="svc"><div><h3>Manicure &amp; Pedicure Ritual</h3><p class="mut">Soak, shaping, cuticle care, polish and massage.</p></div><div style="text-align:right"><span class="price">₹1,199</span><br><span class="dur">60 min</span></div></div>
+<div class="svc"><div><h3>Threading, Waxing &amp; Clean-up</h3><p class="mut">Gentle, hygienic grooming for face and body.</p></div><div style="text-align:right"><span class="price">From ₹199</span><br><span class="dur">15–45 min</span></div></div></div>
+</section>
+
+<section id="stylists" class="reveal"><p class="eyebrow" style="color:#8a6d2b">MEET THE ARTISTS</p><h2>Choose your stylist, not just a service.</h2><div class="grid g4">
+<article class="card"><img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=80" alt="Hair stylist at work in a salon" loading="lazy"><h3>Ananya Rao</h3><p class="mut">Founder &amp; Colour Specialist — balayage, global colour and keratin. 12 years.</p></article>
+<article class="card"><img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1600&q=80" alt="Barber styling a man's hair" loading="lazy"><h3>Vikram Shetty</h3><p class="mut">Men's Grooming Lead — precision cuts, fades and beard sculpting. 10 years.</p></article>
+<article class="card"><img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1600&q=80" alt="Bridal makeup portrait" loading="lazy"><h3>Meera Nair</h3><p class="mut">Bridal &amp; Makeup Artist — HD and airbrush bridal, saree draping. 9 years.</p></article>
+<article class="card"><img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1600&q=80" alt="Makeup application close-up" loading="lazy"><h3>Sana Khan</h3><p class="mut">Skin &amp; Spa Therapist — facials, body spa and nail rituals. 8 years.</p></article>
+</div>
+
+<div class="grid g2 gal" style="margin-top:18px">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=1600&q=80" alt="Colour work and styling detail" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80" alt="Salon styling station" loading="lazy">
+</div>
+<aside class="note" aria-label="A note from the lead stylist"><p class="eyebrow" style="color:#8a6d2b">A NOTE FROM THE LEAD STYLIST</p><h3 style="font-size:24px">“I will never give you a look you cannot live with.”</h3><p class="mut">I have turned away colour that would damage hair, and talked brides out of trends that did not suit their face. That honesty is the whole point of LUXE. If a style will not hold, will not suit your routine, or will not make you feel more like yourself, we will say so — and find the one that will.</p><p><b>— Ananya Rao, Founder &amp; Colour Specialist</b></p></aside>
+</section>
+
+<section id="bridal" class="reveal"><div class="bride"><p class="eyebrow">BRIDAL</p><h2>Your wedding, beautifully planned.</h2><p>Every bridal booking includes a trial, a personal stylist and a calm, private bridal room.</p><div class="grid g3" style="margin-top:20px">
+<div class="card"><h3>Essential Bride — ₹24,999</h3><p>HD makeup, hairstyling, saree draping, manicure &amp; pedicure. 1 trial included.</p></div>
+<div class="card"><h3>Royal Bride — ₹39,999</h3><p>Airbrush makeup, pre-bridal glow facial, hair spa, nails, draping and touch-up kit.</p></div>
+<div class="card"><h3>Complete Celebration — ₹54,999</h3><p>Bride + 2 family members, 2 pre-bridal sessions, mehndi coordination and on-day assistance.</p></div>
+</div></div></section>
+
+<section id="gallery" class="reveal"><p class="eyebrow" style="color:#8a6d2b">GALLERY</p><h2>Inside LUXE.</h2><div class="grid g4 gal">
+<img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80" alt="Salon chairs and mirrors" loading="lazy">
+<img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1600&q=80" alt="Hair wash and salon care" loading="lazy">
+<img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1600&q=80" alt="Makeup and beauty products" loading="lazy">
+<img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80" alt="Relaxing spa massage" loading="lazy">
+<img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80" alt="Facial treatment" loading="lazy">
+<img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1600&q=80" alt="Cosmetics and beauty tools" loading="lazy">
+<img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1600&q=80" alt="Hair styling session" loading="lazy">
+<img decoding="async" referrerpolicy="no-referrer" src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=80" alt="Stylist finishing a hairstyle" loading="lazy">
+</div></section>
+
+
+<section id="more-transformations" class="reveal"><p class="eyebrow" style="color:#8a6d2b">MORE TRANSFORMATIONS</p><h2>More transformations, real results.</h2><p class="mut">Colour, cuts, bridal looks, skin glow and spa calm — a wider look inside LUXE, with the same stylists and the same calm studio.</p><div class="grid g4 gal">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80" alt="Salon interior with styling chairs" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=80" alt="Stylist finishing a haircut" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1600&q=80" alt="Barber styling hair" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1600&q=80" alt="Hair wash at the salon basin" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1600&q=80" alt="Hair styling session in progress" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1600&q=80" alt="Makeup brushes and beauty products" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80" alt="Relaxing spa massage treatment" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80" alt="Facial treatment in progress" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1600&q=80" alt="Makeup application close-up" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1600&q=80" alt="Cosmetics and beauty tools on a table" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1600&q=80" alt="Bridal makeup portrait" loading="lazy">
+<img referrerpolicy="no-referrer" decoding="async" src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1600&q=80" alt="Beauty and makeup detail" loading="lazy">
+</div></section>
+
+<section class="reveal"><h2>Guests love LUXE.</h2><div class="grid g3">
+<blockquote class="card">“Ananya understood my hair in five minutes. The balayage still looks fresh after two months.”<footer><b>— Priya M., Mangaluru</b></footer></blockquote>
+<blockquote class="card">“Best men's cut in the city. No rush, perfect fade, and a proper hot-towel finish.”<footer><b>— Arjun S., Mangaluru</b></footer></blockquote>
+<blockquote class="card">“My bridal morning was calm, not chaotic. Meera's team made me feel like the only bride that day.”<footer><b>— Divya K., Udupi</b></footer></blockquote>
+</div></section>
+
+<section class="reveal" aria-label="The LUXE promise"><div class="promise"><p class="eyebrow">OUR PROMISE</p><h2 style="color:#fff">Leave lighter than you arrived.</h2><blockquote class="pull dark" style="border-color:var(--gold2)">“The best compliment is not ‘you look beautiful.’ It is ‘you look like you — on your best day.’”</blockquote><p style="color:#d8d0c2">That is our promise, on every visit: a consultation before the chair, honest advice, transparent prices, and a finish you can recreate at home. If it is not right, we will make it right before you leave.</p><div style="margin-top:20px"><a class="btn" href="#book">Book with that promise</a></div></div></section>
+
+<section id="book" class="reveal"><div class="grid g2"><div><h2>Book your appointment.</h2><p>Front-end demo only — this form does not send or store your details. It shows a confirmation on this page.</p><p><b>Hours:</b> Monday–Sunday, 9:30 AM – 8:30 PM<br><b>Location:</b> LUXE Salon &amp; Spa, 2nd Floor, MG Road, Mangaluru, Karnataka 575001 (demo address)<br><b>Phone:</b> +91 98765 43214</p><p class="mut">Walk-ins welcome, appointments recommended on weekends and for bridal trials.</p></div>
+<form id="bookingForm" aria-label="Appointment booking form"><label for="bname">Full name</label><input id="bname" required placeholder="e.g. Anjali Shetty">
+<label for="bphone">Phone</label><input id="bphone" type="tel" required placeholder="+91 …">
+<label for="bservice">Service</label><select id="bservice" required><option value="">Choose a service…</option><optgroup label="Women"><option>Signature Haircut &amp; Styling — ₹699</option><option>Balayage / Global Colour — ₹5,499</option><option>Keratin Smoothening — ₹6,999</option><option>Hair Spa &amp; Scalp Ritual — ₹1,499</option></optgroup><optgroup label="Men"><option>Signature Haircut — ₹499</option><option>Beard Sculpt &amp; Hot Towel Shave — ₹299</option><option>Hair Colour &amp; Grey Coverage — ₹1,299</option></optgroup><optgroup label="Skin, Spa &amp; Nails"><option>LUXE Glow Facial — ₹1,999</option><option>Full-Body Aroma Spa — ₹2,499</option><option>Manicure &amp; Pedicure Ritual — ₹1,199</option></optgroup><optgroup label="Bridal"><option>Essential Bride — ₹24,999</option><option>Royal Bride — ₹39,999</option><option>Complete Celebration — ₹54,999</option></optgroup></select>
+<label for="bstylist">Preferred stylist</label><select id="bstylist"><option>No preference</option><option>Ananya Rao — Colour</option><option>Vikram Shetty — Men's Grooming</option><option>Meera Nair — Bridal</option><option>Sana Khan — Skin &amp; Spa</option></select>
+<label for="bdate">Date</label><input id="bdate" type="date" required>
+<label for="btime">Time</label><select id="btime" required><option value="">Choose a time…</option><option>9:30 AM</option><option>11:00 AM</option><option>1:00 PM</option><option>3:00 PM</option><option>5:00 PM</option><option>6:30 PM</option></select>
+<label for="bnotes">Notes (optional)</label><textarea id="bnotes" rows="3" placeholder="Allergies, occasion, hair history…"></textarea>
+<button class="btn" type="submit" style="margin-top:16px">Request Appointment</button>
+<div id="confirm" role="status" aria-live="polite"></div></form></div></section>
+</div>
+</main>
+<footer><div class="wrap"><p><b>LUXE — Salon &amp; Spa, Mangaluru</b> • Demo: +91 98765 43214 • MG Road, Mangaluru (demo address)</p><p class="mut" style="color:#aaa">Demo portfolio site — fictional demo brand, not a real business. Prices and hours are sample content for portfolio display.</p></div></footer>
+<script>
+function showTab(e,id){document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected','false'));e.target.setAttribute('aria-selected','true');document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active')}
+document.getElementById('bookingForm').addEventListener('submit',function(e){e.preventDefault();var c=document.getElementById('confirm');c.style.display='block';c.innerHTML='<b>✓ Request received — thank you, '+document.getElementById('bname').value+'!</b><br>Service: '+document.getElementById('bservice').value+'<br>Stylist: '+document.getElementById('bstylist').value+'<br>When: '+document.getElementById('bdate').value+' at '+document.getElementById('btime').value+'<br><span style="color:#555">Demo confirmation only — please call +91 98765 43214 to confirm.</span>';c.scrollIntoView({behavior:'smooth',block:'center'})});
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(s){io.observe(s)});
+</script>
+<script>
+(function(){
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var progress = document.getElementById('progress');
+var header = document.querySelector('header');
+var heroImg = document.querySelector('.hero-img');
+function onScroll(){
+  var h = document.documentElement;
+  var max = h.scrollHeight - h.clientHeight;
+  if (progress) progress.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+  if (header) header.classList.toggle('scrolled', h.scrollTop > 10);
+  if (heroImg && !reduced && h.scrollTop < 600) heroImg.style.transform = 'translateY(' + (h.scrollTop * 0.08) + 'px) scale(1.05)';
+}
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+window.addEventListener('error', function(e){
+  var t = e.target;
+  if (t && t.tagName === 'IMG' && !t.dataset.fallback) {
+    t.dataset.fallback = '1';
+    t.onerror = null;
+    t.style.background = 'linear-gradient(135deg,#3a3230,#c6a15b)';
+    var fb = 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80';
+    if (t.src !== fb) { t.src = fb; }
+  }
+}, true);
+document.querySelectorAll('img').forEach(function(img){
+  if (img.complete && img.naturalWidth) img.classList.add('loaded');
+  else img.addEventListener('load', function(){ img.classList.add('loaded'); });
+});
+})();
+</script>
+<!-- Sanjai creative-web motion layer (Rule 0: one small piece only).
+     GSAP 3.15 + ScrollTrigger + Lenis 1.3.27 via CDN. This layer AUGMENTS the
+     existing native reveal (IntersectionObserver + CSS) — it never replaces
+     it, so if any CDN file fails, the page still reveals and scrolls natively.
+     No Barba, no installs, no copied reference-site assets or dark palette;
+     the existing champagne/charcoal theme is unchanged. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js" defer></script>
+<script>
+(function () {
+  // Reduced motion: skip Lenis + GSAP scroll motion entirely. The existing
+  // CSS already reduces .reveal to a fade, so nothing is lost.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Defer scripts mean this inline script may run first; wait for them.
+  function ready(fn, tries) {
+    if (window.gsap && window.ScrollTrigger && window.Lenis) return fn();
+    if (tries <= 0) return; // CDN failed: native reveal/scroll stays in charge.
+    setTimeout(function () { ready(fn, tries - 1); }, 100);
+  }
+  ready(function () {
+    gsap.registerPlugin(ScrollTrigger);
+    // Lenis smooth scroll, transform/opacity only (60fps). It smooths wheel
+    // scrolling only; it does not intercept keyboard scrolling, Tab focus,
+    // or native scroll, so anchor/keyboard paths keep working.
+    var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.refresh);
+    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    // Anchor links: route through Lenis, then move focus to the target
+    // (with preventScroll) so keyboard users land where the link promised.
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var id = link.getAttribute('href');
+        if (id.length < 2) return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        lenis.scrollTo(target, {
+          offset: -70,
+          onComplete: function () {
+            target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
+          }
+        });
+      });
+    });
+    // One small GSAP moment only: hero entrance stagger + story chapters
+    // fading/sliding on scroll. .reveal sections are untouched, so the
+    // native IntersectionObserver remains the fallback for everything else.
+    gsap.from('.hero-txt > *', {
+      y: 24, opacity: 0, duration: 0.8, ease: 'power2.out', stagger: 0.08,
+      clearProps: 'transform,opacity'
+    });
+    gsap.utils.toArray('.chapter').forEach(function (chapter) {
+      gsap.from(chapter, {
+        scrollTrigger: { trigger: chapter, start: 'top 85%', once: true },
+        x: -24, opacity: 0, duration: 0.7, ease: 'power2.out',
+        clearProps: 'transform,opacity'
+      });
+    });
+    window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+  }, 30);
+})();
+</script>
+<!-- Sanjai creative-web ambient layer (Rule 0: one small piece only).
+     Three.js 0.187.0 + Postprocessing 6.39.6, hero only: ~150 champagne
+     sparkle points, slow drift, ONE EffectPass (RenderPass + BloomEffect,
+     low strength). No CurtainsJS on this page, no second WebGL engine.
+     Importmap maps the bare "three" specifier the postprocessing build
+     imports, so both ESM modules resolve from CDN. If any import fails,
+     this block throws inside its own try/catch and the canvas stays empty
+     — hero text and hero image work normally. Skipped entirely under
+     prefers-reduced-motion; rendering pauses when the hero is out of view. -->
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","postprocessing":"https://cdn.jsdelivr.net/npm/postprocessing@6.39.6/build/index.js"}}
+</script>
+<script type="module">
+async function initLuxeParticles() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var hero = document.querySelector('.hero');
+  var canvas = document.getElementById('luxe-particles');
+  if (!hero || !canvas) return;
+  try {
+    var THREE = await import('three');
+    var PP = await import('postprocessing');
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false, powerPreference: 'low-power' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer.setClearColor(0x000000, 0);
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
+    camera.position.z = 8;
+    var count = 150;
+    var positions = new Float32Array(count * 3);
+    for (var i = 0; i < count; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 18;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 9;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 6;
+    }
+    var geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    var material = new THREE.PointsMaterial({ color: 0xe8d5a8, size: 0.07, transparent: true, opacity: 0.85, depthWrite: false, sizeAttenuation: true });
+    var points = new THREE.Points(geometry, material);
+    scene.add(points);
+    var composer = new PP.EffectComposer(renderer);
+    composer.addPass(new PP.RenderPass(scene, camera));
+    composer.addPass(new PP.EffectPass(camera, new PP.BloomEffect({ intensity: 0.4, luminanceThreshold: 0.3, luminanceSmoothing: 0.1, radius: 0.7 })));
+    function resize() {
+      var w = hero.clientWidth, h = hero.clientHeight;
+      if (!w || !h) return;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
+      composer.setSize(w, h);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    var visible = false, raf = null;
+    function loop(t) {
+      if (!visible) { raf = null; return; }
+      points.rotation.y = t * 0.00003;
+      points.position.y = Math.sin(t * 0.0003) * 0.15;
+      composer.render();
+      raf = requestAnimationFrame(loop);
+    }
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible && !raf) raf = requestAnimationFrame(loop);
+    }, { threshold: 0 }).observe(hero);
+  } catch (e) { /* Import/WebGL failure: canvas stays empty, hero unchanged. */ }
+}
+initLuxeParticles();
+</script>
+<script>
+try {
+  setTimeout(function () {
+    document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); });
+  }, 2000);
+} catch (e) { /* reveal backup failed: observer path still applies */ }
+</script>
+</body></html>
